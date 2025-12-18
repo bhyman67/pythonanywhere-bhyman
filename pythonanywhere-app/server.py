@@ -51,8 +51,8 @@ def covid_home():
     locations = df["Combined_Key"].to_list()
     states = list(df["State"].unique())
 
-    # Return index.html
-    return render_template("index.html", states = states, list = locations)
+    # Return covid-by-county.html
+    return render_template("covid-by-county.html", states = states, list = locations)
 
 @app.route("/covid-by-county/graph")
 def county_graph():
@@ -94,7 +94,7 @@ def county_graph():
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
     # Return template and data
-    return render_template("index.html", list=locations, states = states, graphJSON=graphJSON)
+    return render_template("covid-by-county.html", list=locations, states = states, graphJSON=graphJSON)
 
 # define the graphs endpoint here (actually, maybe not... )
 
