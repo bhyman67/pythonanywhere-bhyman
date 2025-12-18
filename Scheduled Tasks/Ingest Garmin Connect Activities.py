@@ -65,9 +65,24 @@ except GarminConnectTooManyRequestsError:
 except GarminConnectConnectionError:
     print("Connection error. Check your internet connection.")
 
-# Retrieve up to 5,000 activities
-activities = client.get_activities(0, 5000)
-activities_df = pd.DataFrame(activities)
+# Retrieve up to 5,000 activities in 5 separate calls of 1000 each
+all_activities = []
+batch_size = 1000
+num_batches = 5
+
+for i in range(num_batches):
+    start_index = i * batch_size
+    print(f"Fetching activities {start_index} to {start_index + batch_size - 1}...")
+    try:
+        batch_activities = client.get_activities(start_index, batch_size)
+        all_activities.extend(batch_activities)
+        print(f"Retrieved {len(batch_activities)} activities in batch {i+1}")
+    except Exception as e:
+        print(f"Error fetching batch {i+1}: {e}")
+        break
+
+print(f"Total activities retrieved: {len(all_activities)}")
+activities_df = pd.DataFrame(all_activities)
 
 
 # DATA PREP ==> Cleaning/Transforming/Formating
