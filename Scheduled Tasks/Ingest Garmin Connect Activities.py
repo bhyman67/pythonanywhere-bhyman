@@ -35,7 +35,10 @@ def add_avg_weight_per_rep(exercise_sets):
 # Try to use PythonAnywhere config first, fall back to local retrieve_creds
 use_database = False
 try:
-    import config
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("config", "/home/bhyman/config.py")
+    config = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(config)
     username = config.GARMIN_USERNAME
     password = config.GARMIN_PASSWORD
     # Get MySQL credentials from config
