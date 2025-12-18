@@ -1,0 +1,25 @@
+<option>Albany</option>
+<option>Big Horn</option>
+<option>Campbell</option>
+<option>Carbon</option>
+<option>Converse</option>
+<option>Crook</option>
+<option>Fremont</option>
+<option>Goshen</option>
+<option>Hot Springs</option>
+<option>Johnson</option>
+<option>Laramie</option>
+<option>Lincoln</option>
+<option>Natrona</option>
+<option>Niobrara</option>
+<option>Park</option>
+<option>Platte</option>
+<option>Sheridan</option>
+<option>Sublette</option>
+<option>Sweetwater</option>
+<option>Teton</option>
+<option>Uinta</option>
+<option>Washakie</option>
+<option>Weston</option>
+<option>Out of WY</option>
+<option>Unassigned</option>

@@ -1,0 +1,10 @@
+<option>Fairfield</option>
+<option>Hartford</option>
+<option>Litchfield</option>
+<option>Middlesex</option>
+<option>New Haven</option>
+<option>New London</option>
+<option>Tolland</option>
+<option>Windham</option>
+<option>Out of CT</option>
+<option>Unassigned</option>

@@ -1,0 +1,89 @@
+<option>Aitkin</option>
+<option>Anoka</option>
+<option>Becker</option>
+<option>Beltrami</option>
+<option>Benton</option>
+<option>Big Stone</option>
+<option>Blue Earth</option>
+<option>Brown</option>
+<option>Carlton</option>
+<option>Carver</option>
+<option>Cass</option>
+<option>Chippewa</option>
+<option>Chisago</option>
+<option>Clay</option>
+<option>Clearwater</option>
+<option>Cook</option>
+<option>Cottonwood</option>
+<option>Crow Wing</option>
+<option>Dakota</option>
+<option>Dodge</option>
+<option>Douglas</option>
+<option>Faribault</option>
+<option>Fillmore</option>
+<option>Freeborn</option>
+<option>Goodhue</option>
+<option>Grant</option>
+<option>Hennepin</option>
+<option>Houston</option>
+<option>Hubbard</option>
+<option>Isanti</option>
+<option>Itasca</option>
+<option>Jackson</option>
+<option>Kanabec</option>
+<option>Kandiyohi</option>
+<option>Kittson</option>
+<option>Koochiching</option>
+<option>Lac qui Parle</option>
+<option>Lake</option>
+<option>Lake of the Woods</option>
+<option>Le Sueur</option>
+<option>Lincoln</option>
+<option>Lyon</option>
+<option>McLeod</option>
+<option>Mahnomen</option>
+<option>Marshall</option>
+<option>Martin</option>
+<option>Meeker</option>
+<option>Mille Lacs</option>
+<option>Morrison</option>
+<option>Mower</option>
+<option>Murray</option>
+<option>Nicollet</option>
+<option>Nobles</option>
+<option>Norman</option>
+<option>Olmsted</option>
+<option>Otter Tail</option>
+<option>Pennington</option>
+<option>Pine</option>
+<option>Pipestone</option>
+<option>Polk</option>
+<option>Pope</option>
+<option>Ramsey</option>
+<option>Red Lake</option>
+<option>Redwood</option>
+<option>Renville</option>
+<option>Rice</option>
+<option>Rock</option>
+<option>Roseau</option>
+<option>St. Louis</option>
+<option>Scott</option>
+<option>Sherburne</option>
+<option>Sibley</option>
+<option>Stearns</option>
+<option>Steele</option>
+<option>Stevens</option>
+<option>Swift</option>
+<option>Todd</option>
+<option>Traverse</option>
+<option>Wabasha</option>
+<option>Wadena</option>
+<option>Waseca</option>
+<option>Washington</option>
+<option>Watonwan</option>
+<option>Wilkin</option>
+<option>Winona</option>
+<option>Wright</option>
+<option>Yellow Medicine</option>
+<option>Out of MN</option>
+<option>Unassigned</option>

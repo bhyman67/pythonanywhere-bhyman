@@ -1,0 +1,31 @@
+<option>Aleutians East</option>
+<option>Aleutians West</option>
+<option>Anchorage</option>
+<option>Bethel</option>
+<option>Bristol Bay</option>
+<option>Denali</option>
+<option>Dillingham</option>
+<option>Fairbanks North Star</option>
+<option>Haines</option>
+<option>Hoonah-Angoon</option>
+<option>Juneau</option>
+<option>Kenai Peninsula</option>
+<option>Ketchikan Gateway</option>
+<option>Kodiak Island</option>
+<option>Kusilvak</option>
+<option>Lake and Peninsula</option>
+<option>Matanuska-Susitna</option>
+<option>Nome</option>
+<option>North Slope</option>
+<option>Northwest Arctic</option>
+<option>Petersburg</option>
+<option>Prince of Wales-Hyder</option>
+<option>Sitka</option>
+<option>Skagway</option>
+<option>Southeast Fairbanks</option>
+<option>Valdez-Cordova</option>
+<option>Wrangell</option>
+<option>Yakutat</option>
+<option>Yukon-Koyukuk</option>
+<option>Out of AK</option>
+<option>Unassigned</option>

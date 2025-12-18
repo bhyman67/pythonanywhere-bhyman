@@ -1,0 +1,18 @@
+<option>Androscoggin</option>
+<option>Aroostook</option>
+<option>Cumberland</option>
+<option>Franklin</option>
+<option>Hancock</option>
+<option>Kennebec</option>
+<option>Knox</option>
+<option>Lincoln</option>
+<option>Oxford</option>
+<option>Penobscot</option>
+<option>Piscataquis</option>
+<option>Sagadahoc</option>
+<option>Somerset</option>
+<option>Waldo</option>
+<option>Washington</option>
+<option>York</option>
+<option>Out of ME</option>
+<option>Unassigned</option>

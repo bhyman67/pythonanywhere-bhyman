@@ -1,0 +1,12 @@
+<option>Belknap</option>
+<option>Carroll</option>
+<option>Cheshire</option>
+<option>Coos</option>
+<option>Grafton</option>
+<option>Hillsborough</option>
+<option>Merrimack</option>
+<option>Rockingham</option>
+<option>Strafford</option>
+<option>Sullivan</option>
+<option>Out of NH</option>
+<option>Unassigned</option>

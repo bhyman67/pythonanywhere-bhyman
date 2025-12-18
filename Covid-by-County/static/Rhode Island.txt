@@ -1,0 +1,7 @@
+<option>Bristol</option>
+<option>Kent</option>
+<option>Newport</option>
+<option>Providence</option>
+<option>Washington</option>
+<option>Out of RI</option>
+<option>Unassigned</option>

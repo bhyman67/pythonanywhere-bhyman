@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Covid by US County</title>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- D3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
+    <!-- Plotly.js -->
+    <script src="https://d14fo0winaifog.cloudfront.net/plotly-basic.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- For making county drop down list dynamic based off of selected state -->
+    <script>
+
+      $(function() {
+        $("#text-three").change(function() {
+          $("#text-four").load(encodeURI('/static/' + $(this).val() + ".txt"));
+        });
+      });
+
+    </script>
+    <script type="text/javascript">
+
+      function set_state_county_path() {
+          
+        const queryString = new URLSearchParams(new FormData(myForm)).toString()
+
+        // Set the action of the form element
+        var elem = document.getElementById("myForm");
+        elem.action = elem.action.concat(queryString)
+      }
+
+    </script>
+
+  </head>
+
+  <body>
+
+    <h1>Covid by US County - Daily Counts</h1>
+
+    <!-- Dropdown Form -->
+    <form name = "myForm" id = "myForm" method = "GET", action = "/graph?">
+
+      <!-- Label -->
+      <label for="locations">Choose a location:</label>
+
+      <br />
+      
+      <!-- State Dropdown -->
+      <select name = "state" id="text-three" form = "myForm">
+        <option selected value="base">Select a state</option>
+        {% for state in states %}
+          <option value= "{{ state }}" >{{ state }}</option>
+        {% endfor %}
+      </select>
+  
+      <br />
+      <br />
+  
+      <!-- County Dropdown -->
+      <select name = 'county' id="text-four" form = "myForm"> 
+        <option>Select a county</option>
+      </select>
+
+      <br />
+      <br />
+
+      <!-- Submit Button -->
+      <input type="submit" onclick="set_state_county_path();">
+
+      <!-- onchange="this.form.submit()" -->
+
+    </form>
+
+    <!-- Line chart -->
+    <div id="chart" class="chart"></div>
+    <script type="text/javascript">
+
+      var graphs = {{graphJSON | safe}};
+      Plotly.plot('chart',graphs,{});        
+
+    </script>
+
+    <!-- <br>
+    <br>
+    <br> -->
+
+    <!-- Link back to BHyman Analytics -->
+    <!-- <p align="right">Back to <a href="https://bhyman67.github.io/">BHyman Analytics</a></p> -->
+
+  </body>
+
+</html>

@@ -1,0 +1,7 @@
+<option>Hawaii</option>
+<option>Honolulu</option>
+<option>Kalawao</option>
+<option>Kauai</option>
+<option>Maui</option>
+<option>Out of HI</option>
+<option>Unassigned</option>

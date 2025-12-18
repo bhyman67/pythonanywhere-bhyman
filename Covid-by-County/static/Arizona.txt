@@ -1,0 +1,17 @@
+<option>Apache</option>
+<option>Cochise</option>
+<option>Coconino</option>
+<option>Gila</option>
+<option>Graham</option>
+<option>Greenlee</option>
+<option>La Paz</option>
+<option>Maricopa</option>
+<option>Mohave</option>
+<option>Navajo</option>
+<option>Pima</option>
+<option>Pinal</option>
+<option>Santa Cruz</option>
+<option>Yavapai</option>
+<option>Yuma</option>
+<option>Out of AZ</option>
+<option>Unassigned</option>

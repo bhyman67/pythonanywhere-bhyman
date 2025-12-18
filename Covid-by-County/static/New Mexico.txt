@@ -1,0 +1,35 @@
+<option>Bernalillo</option>
+<option>Catron</option>
+<option>Chaves</option>
+<option>Cibola</option>
+<option>Colfax</option>
+<option>Curry</option>
+<option>De Baca</option>
+<option>Dona Ana</option>
+<option>Eddy</option>
+<option>Grant</option>
+<option>Guadalupe</option>
+<option>Harding</option>
+<option>Hidalgo</option>
+<option>Lea</option>
+<option>Lincoln</option>
+<option>Los Alamos</option>
+<option>Luna</option>
+<option>McKinley</option>
+<option>Mora</option>
+<option>Otero</option>
+<option>Quay</option>
+<option>Rio Arriba</option>
+<option>Roosevelt</option>
+<option>Sandoval</option>
+<option>San Juan</option>
+<option>San Miguel</option>
+<option>Santa Fe</option>
+<option>Sierra</option>
+<option>Socorro</option>
+<option>Taos</option>
+<option>Torrance</option>
+<option>Union</option>
+<option>Valencia</option>
+<option>Out of NM</option>
+<option>Unassigned</option>

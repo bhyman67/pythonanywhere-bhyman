@@ -1,0 +1,66 @@
+<option>Adams</option>
+<option>Alamosa</option>
+<option>Arapahoe</option>
+<option>Archuleta</option>
+<option>Baca</option>
+<option>Bent</option>
+<option>Boulder</option>
+<option>Broomfield</option>
+<option>Chaffee</option>
+<option>Cheyenne</option>
+<option>Clear Creek</option>
+<option>Conejos</option>
+<option>Costilla</option>
+<option>Crowley</option>
+<option>Custer</option>
+<option>Delta</option>
+<option>Denver</option>
+<option>Dolores</option>
+<option>Douglas</option>
+<option>Eagle</option>
+<option>Elbert</option>
+<option>El Paso</option>
+<option>Fremont</option>
+<option>Garfield</option>
+<option>Gilpin</option>
+<option>Grand</option>
+<option>Gunnison</option>
+<option>Hinsdale</option>
+<option>Huerfano</option>
+<option>Jackson</option>
+<option>Jefferson</option>
+<option>Kiowa</option>
+<option>Kit Carson</option>
+<option>Lake</option>
+<option>La Plata</option>
+<option>Larimer</option>
+<option>Las Animas</option>
+<option>Lincoln</option>
+<option>Logan</option>
+<option>Mesa</option>
+<option>Mineral</option>
+<option>Moffat</option>
+<option>Montezuma</option>
+<option>Montrose</option>
+<option>Morgan</option>
+<option>Otero</option>
+<option>Ouray</option>
+<option>Park</option>
+<option>Phillips</option>
+<option>Pitkin</option>
+<option>Prowers</option>
+<option>Pueblo</option>
+<option>Rio Blanco</option>
+<option>Rio Grande</option>
+<option>Routt</option>
+<option>Saguache</option>
+<option>San Juan</option>
+<option>San Miguel</option>
+<option>Sedgwick</option>
+<option>Summit</option>
+<option>Teller</option>
+<option>Washington</option>
+<option>Weld</option>
+<option>Yuma</option>
+<option>Out of CO</option>
+<option>Unassigned</option>

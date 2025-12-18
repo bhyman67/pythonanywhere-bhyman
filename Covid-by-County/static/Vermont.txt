@@ -1,0 +1,16 @@
+<option>Addison</option>
+<option>Bennington</option>
+<option>Caledonia</option>
+<option>Chittenden</option>
+<option>Essex</option>
+<option>Franklin</option>
+<option>Grand Isle</option>
+<option>Lamoille</option>
+<option>Orange</option>
+<option>Orleans</option>
+<option>Rutland</option>
+<option>Washington</option>
+<option>Windham</option>
+<option>Windsor</option>
+<option>Out of VT</option>
+<option>Unassigned</option>

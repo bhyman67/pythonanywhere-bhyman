@@ -1,0 +1,87 @@
+<option>Alcona</option>
+<option>Alger</option>
+<option>Allegan</option>
+<option>Alpena</option>
+<option>Antrim</option>
+<option>Arenac</option>
+<option>Baraga</option>
+<option>Barry</option>
+<option>Bay</option>
+<option>Benzie</option>
+<option>Berrien</option>
+<option>Branch</option>
+<option>Calhoun</option>
+<option>Cass</option>
+<option>Charlevoix</option>
+<option>Cheboygan</option>
+<option>Chippewa</option>
+<option>Clare</option>
+<option>Clinton</option>
+<option>Crawford</option>
+<option>Delta</option>
+<option>Dickinson</option>
+<option>Eaton</option>
+<option>Emmet</option>
+<option>Genesee</option>
+<option>Gladwin</option>
+<option>Gogebic</option>
+<option>Grand Traverse</option>
+<option>Gratiot</option>
+<option>Hillsdale</option>
+<option>Houghton</option>
+<option>Huron</option>
+<option>Ingham</option>
+<option>Ionia</option>
+<option>Iosco</option>
+<option>Iron</option>
+<option>Isabella</option>
+<option>Jackson</option>
+<option>Kalamazoo</option>
+<option>Kalkaska</option>
+<option>Kent</option>
+<option>Keweenaw</option>
+<option>Lake</option>
+<option>Lapeer</option>
+<option>Leelanau</option>
+<option>Lenawee</option>
+<option>Livingston</option>
+<option>Luce</option>
+<option>Mackinac</option>
+<option>Macomb</option>
+<option>Manistee</option>
+<option>Marquette</option>
+<option>Mason</option>
+<option>Mecosta</option>
+<option>Menominee</option>
+<option>Midland</option>
+<option>Missaukee</option>
+<option>Monroe</option>
+<option>Montcalm</option>
+<option>Montmorency</option>
+<option>Muskegon</option>
+<option>Newaygo</option>
+<option>Oakland</option>
+<option>Oceana</option>
+<option>Ogemaw</option>
+<option>Ontonagon</option>
+<option>Osceola</option>
+<option>Oscoda</option>
+<option>Otsego</option>
+<option>Ottawa</option>
+<option>Presque Isle</option>
+<option>Roscommon</option>
+<option>Saginaw</option>
+<option>St. Clair</option>
+<option>St. Joseph</option>
+<option>Sanilac</option>
+<option>Schoolcraft</option>
+<option>Shiawassee</option>
+<option>Tuscola</option>
+<option>Van Buren</option>
+<option>Washtenaw</option>
+<option>Wayne</option>
+<option>Wexford</option>
+<option>Out of MI</option>
+<option>Unassigned</option>
+<option>Michigan Department of Corrections (MDOC)</option>
+<option>Federal Correctional Institution (FCI)</option>
