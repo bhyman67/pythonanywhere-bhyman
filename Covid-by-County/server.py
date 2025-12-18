@@ -37,18 +37,24 @@ def pull_data():
 
 app = Flask(__name__)
 
+# Portfolio landing page
 @app.route("/")
-def home():
+def portfolio():
+    return render_template("portfolio.html")
+
+# Covid by County app routes
+@app.route("/covid-by-county")
+def covid_home():
 
     # Pull the data and list all locations
     df = pull_data()
     locations = df["Combined_Key"].to_list()
     states = list(df["State"].unique())
 
-    # Redturn index.html
+    # Return index.html
     return render_template("index.html", states = states, list = locations)
 
-@app.route("/graph")
+@app.route("/covid-by-county/graph")
 def county_graph():
 
     # Pull the data and list all locations
