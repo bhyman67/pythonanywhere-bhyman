@@ -197,9 +197,9 @@ if use_database:
         engine = create_engine(connection_string)
         
         # Truncate the table before inserting new data
-        with engine.connect() as connection:
+        with engine.begin() as connection:
             connection.execute(text('TRUNCATE TABLE garmin_connect_activities'))
-            connection.commit()
+            #connection.commit()
             print("Table truncated successfully")
         
         # Write DataFrame to MySQL table
