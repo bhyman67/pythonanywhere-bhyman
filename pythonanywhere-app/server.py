@@ -158,14 +158,14 @@ def sample_data_2_service_doc():
 # OData v4 Data endpoint
 @app.route("/sample_data_2/SampleData")
 def sample_data_2():
-    # Same data as sample_data
+    # Same data as sample_data - using ISO date format for Tableau compatibility
     data = [
-        {"Date": "12/15/2025", "Value": 41},
-        {"Date": "12/16/2025", "Value": 22},
-        {"Date": "12/17/2025", "Value": 27},
-        {"Date": "12/18/2025", "Value": 33},
-        {"Date": "12/19/2025", "Value": 42},
-        {"Date": "12/20/2025", "Value": 41}
+        {"Date": "2025-12-15", "Value": 41},
+        {"Date": "2025-12-16", "Value": 22},
+        {"Date": "2025-12-17", "Value": 27},
+        {"Date": "2025-12-18", "Value": 33},
+        {"Date": "2025-12-19", "Value": 42},
+        {"Date": "2025-12-20", "Value": 41}
     ]
     
     # Apply OData query parameters
