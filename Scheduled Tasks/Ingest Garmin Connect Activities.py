@@ -1,5 +1,6 @@
 import pandas as pd
 import sys
+import os
 from datetime import timedelta
 import math
 from sqlalchemy import create_engine, text
@@ -32,23 +33,21 @@ def add_avg_weight_per_rep(exercise_sets):
     return exercise_sets
 
 # Setup Garmin Connect client object with credentials
-# Try to use PythonAnywhere config first, fall back to local retrieve_creds
+# Try to use environment variables first, fall back to local retrieve_creds
 use_database = False
-try:
-    import importlib.util
-    spec = importlib.util.spec_from_file_location("config", "/home/bhyman/config.py")
-    config = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(config)
-    username = config.GARMIN_USERNAME
-    password = config.GARMIN_PASSWORD
-    # Get MySQL credentials from config
-    mysql_host = config.MYSQL_HOST
-    mysql_user = config.MYSQL_USER
-    mysql_password = config.MYSQL_PASSWORD
-    mysql_database = config.MYSQL_DATABASE
+
+# Check if running on PythonAnywhere (environment variables set in .bashrc)
+if os.getenv('GARMIN_EMAIL') and os.getenv('MYSQL_HOST'):
+    username = os.getenv('GARMIN_EMAIL')
+    password = os.getenv('GARMIN_PASSWORD')
+    # Get MySQL credentials from environment variables
+    mysql_host = os.getenv('MYSQL_HOST')
+    mysql_user = os.getenv('MYSQL_USER')
+    mysql_password = os.getenv('MYSQL_PASSWORD')
+    mysql_database = os.getenv('MYSQL_DATABASE')
     use_database = True
-    print("Using PythonAnywhere config credentials - will write to database")
-except ImportError:
+    print("Using environment variables - will write to database")
+else:
     from retrieve_creds import retrieve_creds
     username, password = retrieve_creds('Garmin Connect/Explore')
     print("Using local retrieve_creds method - will write to CSV")
