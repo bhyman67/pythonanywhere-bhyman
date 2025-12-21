@@ -1,10 +1,12 @@
-
-# Need to use a DB with this...
-
 # Standard Library Imports
 import json
 import os
+import sys
 import io
+
+# Add parent directory to path to import db_connection module
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+from db_connection import get_db_engine, is_database_available
 
 # Needed Libraries
 from flask import Flask, render_template, request, Response
@@ -14,6 +16,7 @@ import pandas as pd
 import numpy as np
 import requests
 import plotly
+from sqlalchemy import text
 
 # pull data
 def pull_data():
@@ -96,18 +99,6 @@ def county_graph():
 
     # Return template and data
     return render_template("covid-by-county.html", list=locations, states = states, graphJSON=graphJSON)
-
-@app.route("/sample_data")
-def sample_data():
-    data = [
-        {"Date": "12/15/2025", "Value": 41},
-        {"Date": "12/16/2025", "Value": 22},
-        {"Date": "12/17/2025", "Value": 27},
-        {"Date": "12/18/2025", "Value": 33},
-        {"Date": "12/19/2025", "Value": 42},
-        {"Date": "12/20/2025", "Value": 41}
-    ]
-    return jsonify(data)
 
 # OData v4 Metadata endpoint
 @app.route("/sample_data_2/$metadata")
@@ -231,6 +222,211 @@ def sample_data_2():
             'Content-Type': 'application/json; odata.metadata=minimal'
         }
     )
+
+# ========================================
+# Garmin Activities OData Endpoints
+# ========================================
+
+# OData v4 Metadata endpoint for Garmin Activities
+@app.route("/garmin_activities/$metadata")
+def garmin_activities_metadata():
+    """OData v4 metadata document describing the Garmin Activities entity"""
+    metadata_xml = '''<?xml version="1.0" encoding="UTF-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="GarminActivitiesService">
+      <EntityType Name="Activity">
+        <Key>
+          <PropertyRef Name="Date"/>
+        </Key>
+        <Property Name="Activity Type" Type="Edm.String"/>
+        <Property Name="Activity Name" Type="Edm.String"/>
+        <Property Name="Location Name" Type="Edm.String"/>
+        <Property Name="Description" Type="Edm.String"/>
+        <Property Name="Date" Type="Edm.String" Nullable="false"/>
+        <Property Name="Distance (miles)" Type="Edm.Double"/>
+        <Property Name="Duration (HH:MM:SS.sss)" Type="Edm.String"/>
+        <Property Name="Elapsed Duration (H:MM:SS.sss)" Type="Edm.String"/>
+        <Property Name="Moving Duration (HH:MM:SS.sss)" Type="Edm.String"/>
+        <Property Name="Elevation Gain - meters" Type="Edm.Double"/>
+        <Property Name="Elevation Loss - meters" Type="Edm.Double"/>
+        <Property Name="Average Speed" Type="Edm.Double"/>
+        <Property Name="Max Speed" Type="Edm.Double"/>
+        <Property Name="Calories" Type="Edm.Int32"/>
+        <Property Name="BMR Calories" Type="Edm.Int32"/>
+        <Property Name="Average HR" Type="Edm.Int32"/>
+        <Property Name="Max HR" Type="Edm.Int32"/>
+        <Property Name="Average Running Cadence In Steps Per Minute" Type="Edm.Double"/>
+        <Property Name="Max Running Cadence In Steps Per Minute" Type="Edm.Double"/>
+        <Property Name="Steps" Type="Edm.Int32"/>
+        <Property Name="Privacy Setting" Type="Edm.String"/>
+        <Property Name="Aerobic Training Effect" Type="Edm.Double"/>
+        <Property Name="Anaerobic Training Effect" Type="Edm.Double"/>
+        <Property Name="Avg Stride Length" Type="Edm.Double"/>
+        <Property Name="Min Temperature" Type="Edm.Double"/>
+        <Property Name="Max Temperature" Type="Edm.Double"/>
+        <Property Name="Min Elevation" Type="Edm.Double"/>
+        <Property Name="Max Elevation" Type="Edm.Double"/>
+        <Property Name="Max Double Cadence" Type="Edm.Double"/>
+        <Property Name="Max Vertical Speed" Type="Edm.Double"/>
+        <Property Name="Lap Count" Type="Edm.Int32"/>
+        <Property Name="Water Estimated" Type="Edm.Double"/>
+        <Property Name="Training Effect Label" Type="Edm.String"/>
+        <Property Name="Activity Training Load" Type="Edm.Double"/>
+        <Property Name="Min Activity Lap Duration" Type="Edm.Double"/>
+        <Property Name="Aerobic Training Effect Message" Type="Edm.String"/>
+        <Property Name="Anaerobic Training Effect Message" Type="Edm.String"/>
+        <Property Name="Moderate Intensity Minutes" Type="Edm.Int32"/>
+        <Property Name="Vigorous Intensity Minutes" Type="Edm.Int32"/>
+        <Property Name="Fastest Split 1000" Type="Edm.Double"/>
+        <Property Name="PR" Type="Edm.Boolean"/>
+        <Property Name="Manual Activity" Type="Edm.Boolean"/>
+        <Property Name="VO2 Max Value" Type="Edm.Double"/>
+        <Property Name="Reps" Type="Edm.Int32"/>
+        <Property Name="Volume" Type="Edm.Int32"/>
+        <Property Name="Sets" Type="Edm.Int32"/>
+        <Property Name="Avg Weight Per Rep" Type="Edm.Double"/>
+        <Property Name="Avg Vertical Speed" Type="Edm.Double"/>
+        <Property Name="Calories Consumed" Type="Edm.Int32"/>
+        <Property Name="Water Consumed" Type="Edm.Double"/>
+        <Property Name="Min Respiration Rate" Type="Edm.Double"/>
+        <Property Name="Max Respiration Rate" Type="Edm.Double"/>
+        <Property Name="Avg Respiration Rate" Type="Edm.Double"/>
+        <Property Name="Avg Stress" Type="Edm.Double"/>
+        <Property Name="Start Stress" Type="Edm.Double"/>
+        <Property Name="End Stress" Type="Edm.Double"/>
+        <Property Name="Difference Stress" Type="Edm.Double"/>
+        <Property Name="Max Stress" Type="Edm.Double"/>
+      </EntityType>
+      <EntityContainer Name="Container">
+        <EntitySet Name="Activities" EntityType="GarminActivitiesService.Activity"/>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>'''
+    return Response(metadata_xml, mimetype='application/xml', headers={'OData-Version': '4.0'})
+
+# OData v4 Service Document for Garmin Activities
+@app.route("/garmin_activities/")
+def garmin_activities_service_doc():
+    """OData v4 service document"""
+    service_doc = {
+        "@odata.context": f"{request.url_root}garmin_activities/$metadata",
+        "value": [
+            {
+                "name": "Activities",
+                "kind": "EntitySet",
+                "url": "Activities"
+            }
+        ]
+    }
+    return Response(
+        json.dumps(service_doc),
+        mimetype='application/json',
+        headers={
+            'OData-Version': '4.0',
+            'Content-Type': 'application/json; odata.metadata=minimal'
+        }
+    )
+
+# OData v4 Data endpoint for Garmin Activities
+@app.route("/garmin_activities/Activities")
+def garmin_activities_data():
+    """Fetch Garmin activities from MySQL database and return as OData JSON"""
+    try:
+        # Get database engine
+        engine = get_db_engine()
+        
+        # Query all data from garmin_connect_activities table
+        query = "SELECT * FROM garmin_connect_activities"
+        df = pd.read_sql(query, engine)
+        
+        # Replace NaN/None values with None for proper JSON serialization
+        df = df.replace({pd.NA: None, pd.NaT: None, np.nan: None})
+        
+        # Convert DataFrame to list of dictionaries
+        data = df.to_dict('records')
+        
+        # Convert any remaining problematic types to strings
+        for record in data:
+            for key, value in record.items():
+                if pd.isna(value) if hasattr(value, '__iter__') and not isinstance(value, str) else value is None:
+                    record[key] = None
+                elif isinstance(value, (pd.Timestamp, pd.Timedelta)):
+                    record[key] = str(value)
+                elif isinstance(value, (np.integer, np.floating)):
+                    record[key] = value.item()
+        
+        # Apply OData query parameters
+        args = request.args
+        
+        # $select - select specific fields
+        if '$select' in args:
+            fields = [f.strip() for f in args['$select'].split(',')]
+            data = [{k: v for k, v in item.items() if k in fields} for item in data]
+        
+        # $orderby - sort data
+        if '$orderby' in args:
+            orderby = args['$orderby']
+            reverse = False
+            if ' desc' in orderby:
+                orderby = orderby.replace(' desc', '').strip()
+                reverse = True
+            elif ' asc' in orderby:
+                orderby = orderby.replace(' asc', '').strip()
+            data = sorted(data, key=lambda x: x.get(orderby, ''), reverse=reverse)
+        
+        # Handle pagination with $skip and $top
+        skip = int(args.get('$skip', 0))
+        top = int(args.get('$top', 1000))  # Default page size of 1000
+        
+        # Get total count before pagination
+        total_count = len(data)
+        
+        # Apply skip and top
+        data = data[skip:skip + top]
+        
+        # Build OData response
+        odata_response = {
+            "@odata.context": f"{request.url_root}garmin_activities/$metadata#Activities"
+        }
+        
+        # Add count if requested
+        if '$count' in args and args['$count'].lower() == 'true':
+            odata_response["@odata.count"] = total_count
+        
+        # Add nextLink if there are more records
+        if skip + top < total_count:
+            next_skip = skip + top
+            # Build next link preserving other query parameters
+            next_params = dict(args)
+            next_params['$skip'] = str(next_skip)
+            next_params['$top'] = str(top)
+            param_string = '&'.join([f"{k}={v}" for k, v in next_params.items()])
+            odata_response["@odata.nextLink"] = f"{request.url}?{param_string}"
+        
+        odata_response["value"] = data
+        
+        print(f"Returning {len(data)} records (skip={skip}, top={top}, total={total_count})")  # Debug log
+        
+        return Response(
+            json.dumps(odata_response, default=str),  # default=str handles datetime conversion
+            mimetype='application/json',
+            headers={
+                'OData-Version': '4.0',
+                'Content-Type': 'application/json; odata.metadata=minimal'
+            }
+        )
+        
+    except Exception as e:
+        print(f"Error in garmin_activities endpoint: {str(e)}")  # Debug log
+        import traceback
+        traceback.print_exc()
+        return Response(
+            json.dumps({"error": str(e)}),
+            status=500,
+            mimetype='application/json'
+        )
 
 # define the graphs endpoint here (actually, maybe not... )
 

@@ -3,7 +3,11 @@ import sys
 import os
 from datetime import timedelta
 import math
-from sqlalchemy import create_engine, text
+from sqlalchemy import text
+
+# Add parent directory to path to import db_connection module
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+from db_connection import is_database_available, get_db_engine
 
 from garminconnect import (
     Garmin,
@@ -34,18 +38,12 @@ def add_avg_weight_per_rep(exercise_sets):
 
 # Setup Garmin Connect client object with credentials
 # Try to use environment variables first, fall back to local retrieve_creds
-use_database = False
+use_database = is_database_available()
 
 # Check if running on PythonAnywhere (environment variables set in .bashrc)
-if os.getenv('GARMIN_EMAIL') and os.getenv('MYSQL_HOST'):
+if os.getenv('GARMIN_EMAIL') and use_database:
     username = os.getenv('GARMIN_EMAIL')
     password = os.getenv('GARMIN_PASSWORD')
-    # Get MySQL credentials from environment variables
-    mysql_host = os.getenv('MYSQL_HOST')
-    mysql_user = os.getenv('MYSQL_USER')
-    mysql_password = os.getenv('MYSQL_PASSWORD')
-    mysql_database = os.getenv('MYSQL_DATABASE')
-    use_database = True
     print("Using environment variables - will write to database")
 else:
     from retrieve_creds import retrieve_creds
@@ -191,9 +189,8 @@ activities_df.rename(columns=renaming_dict, inplace=True)
 if use_database:
     # Connect to MySQL database and write data
     try:
-        # Create database connection string
-        connection_string = f'mysql+pymysql://{mysql_user}:{mysql_password}@{mysql_host}/{mysql_database}'
-        engine = create_engine(connection_string)
+        # Get database engine from shared module
+        engine = get_db_engine()
         
         # Truncate the table before inserting new data
         with engine.begin() as connection:
