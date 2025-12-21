@@ -239,64 +239,64 @@ def garmin_activities_metadata():
         <Key>
           <PropertyRef Name="Date"/>
         </Key>
-        <Property Name="Activity Type" Type="Edm.String"/>
-        <Property Name="Activity Name" Type="Edm.String"/>
-        <Property Name="Location Name" Type="Edm.String"/>
+        <Property Name="ActivityType" Type="Edm.String"/>
+        <Property Name="ActivityName" Type="Edm.String"/>
+        <Property Name="LocationName" Type="Edm.String"/>
         <Property Name="Description" Type="Edm.String"/>
         <Property Name="Date" Type="Edm.String" Nullable="false"/>
-        <Property Name="Distance (miles)" Type="Edm.Double"/>
-        <Property Name="Duration (HH:MM:SS.sss)" Type="Edm.String"/>
-        <Property Name="Elapsed Duration (H:MM:SS.sss)" Type="Edm.String"/>
-        <Property Name="Moving Duration (HH:MM:SS.sss)" Type="Edm.String"/>
-        <Property Name="Elevation Gain - meters" Type="Edm.Double"/>
-        <Property Name="Elevation Loss - meters" Type="Edm.Double"/>
-        <Property Name="Average Speed" Type="Edm.Double"/>
-        <Property Name="Max Speed" Type="Edm.Double"/>
-        <Property Name="Calories" Type="Edm.Int32"/>
-        <Property Name="BMR Calories" Type="Edm.Int32"/>
-        <Property Name="Average HR" Type="Edm.Int32"/>
-        <Property Name="Max HR" Type="Edm.Int32"/>
-        <Property Name="Average Running Cadence In Steps Per Minute" Type="Edm.Double"/>
-        <Property Name="Max Running Cadence In Steps Per Minute" Type="Edm.Double"/>
-        <Property Name="Steps" Type="Edm.Int32"/>
-        <Property Name="Privacy Setting" Type="Edm.String"/>
-        <Property Name="Aerobic Training Effect" Type="Edm.Double"/>
-        <Property Name="Anaerobic Training Effect" Type="Edm.Double"/>
-        <Property Name="Avg Stride Length" Type="Edm.Double"/>
-        <Property Name="Min Temperature" Type="Edm.Double"/>
-        <Property Name="Max Temperature" Type="Edm.Double"/>
-        <Property Name="Min Elevation" Type="Edm.Double"/>
-        <Property Name="Max Elevation" Type="Edm.Double"/>
-        <Property Name="Max Double Cadence" Type="Edm.Double"/>
-        <Property Name="Max Vertical Speed" Type="Edm.Double"/>
-        <Property Name="Lap Count" Type="Edm.Int32"/>
-        <Property Name="Water Estimated" Type="Edm.Double"/>
-        <Property Name="Training Effect Label" Type="Edm.String"/>
-        <Property Name="Activity Training Load" Type="Edm.Double"/>
-        <Property Name="Min Activity Lap Duration" Type="Edm.Double"/>
-        <Property Name="Aerobic Training Effect Message" Type="Edm.String"/>
-        <Property Name="Anaerobic Training Effect Message" Type="Edm.String"/>
-        <Property Name="Moderate Intensity Minutes" Type="Edm.Int32"/>
-        <Property Name="Vigorous Intensity Minutes" Type="Edm.Int32"/>
-        <Property Name="Fastest Split 1000" Type="Edm.Double"/>
-        <Property Name="PR" Type="Edm.Boolean"/>
-        <Property Name="Manual Activity" Type="Edm.Boolean"/>
-        <Property Name="VO2 Max Value" Type="Edm.Double"/>
-        <Property Name="Reps" Type="Edm.Int32"/>
-        <Property Name="Volume" Type="Edm.Int32"/>
-        <Property Name="Sets" Type="Edm.Int32"/>
-        <Property Name="Avg Weight Per Rep" Type="Edm.Double"/>
-        <Property Name="Avg Vertical Speed" Type="Edm.Double"/>
-        <Property Name="Calories Consumed" Type="Edm.Int32"/>
-        <Property Name="Water Consumed" Type="Edm.Double"/>
-        <Property Name="Min Respiration Rate" Type="Edm.Double"/>
-        <Property Name="Max Respiration Rate" Type="Edm.Double"/>
-        <Property Name="Avg Respiration Rate" Type="Edm.Double"/>
-        <Property Name="Avg Stress" Type="Edm.Double"/>
-        <Property Name="Start Stress" Type="Edm.Double"/>
-        <Property Name="End Stress" Type="Edm.Double"/>
-        <Property Name="Difference Stress" Type="Edm.Double"/>
-        <Property Name="Max Stress" Type="Edm.Double"/>
+        <Property Name="DistanceMiles" Type="Edm.Double"/>
+        <Property Name="Duration" Type="Edm.String"/>
+        <Property Name="ElapsedDuration" Type="Edm.String"/>
+        <Property Name="MovingDuration" Type="Edm.String"/>
+        <Property Name="ElevationGainMeters" Type="Edm.Double"/>
+        <Property Name="ElevationLossMeters" Type="Edm.Double"/>
+        <Property Name="AverageSpeed" Type="Edm.Double"/>
+        <Property Name="MaxSpeed" Type="Edm.Double"/>
+        <Property Name="Calories" Type="Edm.Double"/>
+        <Property Name="BMRCalories" Type="Edm.Double"/>
+        <Property Name="AverageHR" Type="Edm.Double"/>
+        <Property Name="MaxHR" Type="Edm.Double"/>
+        <Property Name="AverageRunningCadenceInStepsPerMinute" Type="Edm.Double"/>
+        <Property Name="MaxRunningCadenceInStepsPerMinute" Type="Edm.Double"/>
+        <Property Name="Steps" Type="Edm.Double"/>
+        <Property Name="PrivacySetting" Type="Edm.String"/>
+        <Property Name="AerobicTrainingEffect" Type="Edm.Double"/>
+        <Property Name="AnaerobicTrainingEffect" Type="Edm.Double"/>
+        <Property Name="AvgStrideLength" Type="Edm.Double"/>
+        <Property Name="MinTemperature" Type="Edm.Double"/>
+        <Property Name="MaxTemperature" Type="Edm.Double"/>
+        <Property Name="MinElevation" Type="Edm.Double"/>
+        <Property Name="MaxElevation" Type="Edm.Double"/>
+        <Property Name="MaxDoubleCadence" Type="Edm.Double"/>
+        <Property Name="MaxVerticalSpeed" Type="Edm.Double"/>
+        <Property Name="LapCount" Type="Edm.Double"/>
+        <Property Name="WaterEstimated" Type="Edm.Double"/>
+        <Property Name="TrainingEffectLabel" Type="Edm.String"/>
+        <Property Name="ActivityTrainingLoad" Type="Edm.Double"/>
+        <Property Name="MinActivityLapDuration" Type="Edm.Double"/>
+        <Property Name="AerobicTrainingEffectMessage" Type="Edm.String"/>
+        <Property Name="AnaerobicTrainingEffectMessage" Type="Edm.String"/>
+        <Property Name="ModerateIntensityMinutes" Type="Edm.Double"/>
+        <Property Name="VigorousIntensityMinutes" Type="Edm.Double"/>
+        <Property Name="FastestSplit1000" Type="Edm.Double"/>
+        <Property Name="PR" Type="Edm.String"/>
+        <Property Name="ManualActivity" Type="Edm.String"/>
+        <Property Name="VO2MaxValue" Type="Edm.Double"/>
+        <Property Name="Reps" Type="Edm.Double"/>
+        <Property Name="Volume" Type="Edm.Double"/>
+        <Property Name="Sets" Type="Edm.Double"/>
+        <Property Name="AvgWeightPerRep" Type="Edm.Double"/>
+        <Property Name="AvgVerticalSpeed" Type="Edm.Double"/>
+        <Property Name="CaloriesConsumed" Type="Edm.Double"/>
+        <Property Name="WaterConsumed" Type="Edm.Double"/>
+        <Property Name="MinRespirationRate" Type="Edm.Double"/>
+        <Property Name="MaxRespirationRate" Type="Edm.Double"/>
+        <Property Name="AvgRespirationRate" Type="Edm.Double"/>
+        <Property Name="AvgStress" Type="Edm.Double"/>
+        <Property Name="StartStress" Type="Edm.Double"/>
+        <Property Name="EndStress" Type="Edm.Double"/>
+        <Property Name="DifferenceStress" Type="Edm.Double"/>
+        <Property Name="MaxStress" Type="Edm.Double"/>
       </EntityType>
       <EntityContainer Name="Container">
         <EntitySet Name="Activities" EntityType="GarminActivitiesService.Activity"/>
@@ -344,6 +344,63 @@ def garmin_activities_data():
         # Replace NaN/None values with None for proper JSON serialization
         df = df.replace({pd.NA: None, pd.NaT: None, np.nan: None})
         
+        # Map database column names to OData-compliant property names
+        column_mapping = {
+            'Activity Type': 'ActivityType',
+            'Activity Name': 'ActivityName',
+            'Location Name': 'LocationName',
+            'Distance (miles)': 'DistanceMiles',
+            'Duration (HH:MM:SS.sss)': 'Duration',
+            'Elapsed Duration (H:MM:SS.sss)': 'ElapsedDuration',
+            'Moving Duration (HH:MM:SS.sss)': 'MovingDuration',
+            'Elevation Gain - meters': 'ElevationGainMeters',
+            'Elevation Loss - meters': 'ElevationLossMeters',
+            'Average Speed': 'AverageSpeed',
+            'Max Speed': 'MaxSpeed',
+            'BMR Calories': 'BMRCalories',
+            'Average HR': 'AverageHR',
+            'Max HR': 'MaxHR',
+            'Average Running Cadence In Steps Per Minute': 'AverageRunningCadenceInStepsPerMinute',
+            'Max Running Cadence In Steps Per Minute': 'MaxRunningCadenceInStepsPerMinute',
+            'Privacy Setting': 'PrivacySetting',
+            'Aerobic Training Effect': 'AerobicTrainingEffect',
+            'Anaerobic Training Effect': 'AnaerobicTrainingEffect',
+            'Avg Stride Length': 'AvgStrideLength',
+            'Min Temperature': 'MinTemperature',
+            'Max Temperature': 'MaxTemperature',
+            'Min Elevation': 'MinElevation',
+            'Max Elevation': 'MaxElevation',
+            'Max Double Cadence': 'MaxDoubleCadence',
+            'Max Vertical Speed': 'MaxVerticalSpeed',
+            'Lap Count': 'LapCount',
+            'Water Estimated': 'WaterEstimated',
+            'Training Effect Label': 'TrainingEffectLabel',
+            'Activity Training Load': 'ActivityTrainingLoad',
+            'Min Activity Lap Duration': 'MinActivityLapDuration',
+            'Aerobic Training Effect Message': 'AerobicTrainingEffectMessage',
+            'Anaerobic Training Effect Message': 'AnaerobicTrainingEffectMessage',
+            'Moderate Intensity Minutes': 'ModerateIntensityMinutes',
+            'Vigorous Intensity Minutes': 'VigorousIntensityMinutes',
+            'Fastest Split 1000': 'FastestSplit1000',
+            'Manual Activity': 'ManualActivity',
+            'VO2 Max Value': 'VO2MaxValue',
+            'Avg Weight Per Rep': 'AvgWeightPerRep',
+            'Avg Vertical Speed': 'AvgVerticalSpeed',
+            'Calories Consumed': 'CaloriesConsumed',
+            'Water Consumed': 'WaterConsumed',
+            'Min Respiration Rate': 'MinRespirationRate',
+            'Max Respiration Rate': 'MaxRespirationRate',
+            'Avg Respiration Rate': 'AvgRespirationRate',
+            'Avg Stress': 'AvgStress',
+            'Start Stress': 'StartStress',
+            'End Stress': 'EndStress',
+            'Difference Stress': 'DifferenceStress',
+            'Max Stress': 'MaxStress'
+        }
+        
+        # Rename columns to OData-compliant names
+        df = df.rename(columns=column_mapping)
+        
         # Convert DataFrame to list of dictionaries
         data = df.to_dict('records')
         
@@ -356,6 +413,12 @@ def garmin_activities_data():
                     record[key] = str(value)
                 elif isinstance(value, (np.integer, np.floating)):
                     record[key] = value.item()
+            
+            # Convert Boolean-like fields to strings (PR, ManualActivity)
+            if 'PR' in record and record['PR'] is not None:
+                record['PR'] = str(record['PR'])
+            if 'ManualActivity' in record and record['ManualActivity'] is not None:
+                record['ManualActivity'] = str(record['ManualActivity'])
         
         # Apply OData query parameters
         args = request.args
