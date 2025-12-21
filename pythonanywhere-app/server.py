@@ -1,21 +1,21 @@
 
-# Need to use a DB with this... 
+# Need to use a DB with this...
 
 # Standard Library Imports
 import json
-import os 
+import os
 import io
 
 # Needed Libraries
 from flask import Flask, render_template, request, Response
 import plotly.express as px
 from flask import jsonify
-import pandas as pd 
+import pandas as pd
 import numpy as np
 import requests
 import plotly
 
-# pull data 
+# pull data
 def pull_data():
 
     url = (
@@ -33,7 +33,7 @@ def pull_data():
     return df
 
 # +++++++++++++++++++++
-#      Endpoints 
+#      Endpoints
 # +++++++++++++++++++++
 
 app = Flask(__name__)
@@ -63,7 +63,7 @@ def county_graph():
     locations = df["Combined_Key"].to_list()
     states = list(df["State"].unique())
 
-    # Filter data (based off of query string, args is a list of 
+    # Filter data (based off of query string, args is a list of
     # parameters in the query string)
     args = request.args
     county = args["county"] # str(x).lstrip('[').rstrip(']'), where x is a python list
@@ -82,7 +82,7 @@ def county_graph():
     new_header = df.iloc[0] # grab the first row for the header
     df = df[1:] # take the data less the header row
     df.columns = new_header # set the header row as the df header
-    
+
     # Calculate the differences
     for i in range(row_count):
 
@@ -161,16 +161,16 @@ def sample_data_2():
     # Same data as sample_data - using ISO date format for Tableau compatibility
     data = [
         {"Date": "2025-12-15", "Value": 41},
-        {"Date": "2025-12-16", "Value": 22},
+        {"Date": "2025-12-16", "Value": 52},
         {"Date": "2025-12-17", "Value": 27},
         {"Date": "2025-12-18", "Value": 33},
         {"Date": "2025-12-19", "Value": 42},
         {"Date": "2025-12-20", "Value": 41}
     ]
-    
+
     # Apply OData query parameters
     args = request.args
-    
+
     # $filter - basic support for simple equality filters
     if '$filter' in args:
         filter_expr = args['$filter']
@@ -182,12 +182,12 @@ def sample_data_2():
             if field == 'Value':
                 value = int(value)
             data = [item for item in data if str(item.get(field)) == str(value)]
-    
+
     # $select - select specific fields
     if '$select' in args:
         fields = [f.strip() for f in args['$select'].split(',')]
         data = [{k: v for k, v in item.items() if k in fields} for item in data]
-    
+
     # $orderby - sort data
     if '$orderby' in args:
         orderby = args['$orderby']
@@ -198,17 +198,17 @@ def sample_data_2():
         elif ' asc' in orderby:
             orderby = orderby.replace(' asc', '').strip()
         data = sorted(data, key=lambda x: x.get(orderby, ''), reverse=reverse)
-    
+
     # $top - limit number of results
     if '$top' in args:
         top = int(args['$top'])
         data = data[:top]
-    
+
     # $skip - skip number of results
     if '$skip' in args:
         skip = int(args['$skip'])
         data = data[skip:]
-    
+
     # $count - return count
     if '$count' in args and args['$count'].lower() == 'true':
         odata_response = {
@@ -222,7 +222,7 @@ def sample_data_2():
             "@odata.context": f"{request.url_root}sample_data_2/$metadata#SampleData",
             "value": data
         }
-    
+
     return Response(
         json.dumps(odata_response),
         mimetype='application/json',
