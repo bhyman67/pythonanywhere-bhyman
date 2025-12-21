@@ -109,6 +109,71 @@ def sample_data():
     ]
     return jsonify(data)
 
+@app.route("/sample_data_2")
+def sample_data_2():
+    # Same data as sample_data
+    data = [
+        {"Date": "12/15/2025", "Value": 41},
+        {"Date": "12/16/2025", "Value": 22},
+        {"Date": "12/17/2025", "Value": 27},
+        {"Date": "12/18/2025", "Value": 33},
+        {"Date": "12/19/2025", "Value": 42},
+        {"Date": "12/20/2025", "Value": 41}
+    ]
+    
+    # Apply OData query parameters
+    args = request.args
+    
+    # $filter - basic support for simple equality filters
+    if '$filter' in args:
+        filter_expr = args['$filter']
+        # Simple parsing for "Date eq 'value'" or "Value eq number"
+        if ' eq ' in filter_expr:
+            field, value = filter_expr.split(' eq ')
+            field = field.strip()
+            value = value.strip().strip("'")
+            if field == 'Value':
+                value = int(value)
+            data = [item for item in data if str(item.get(field)) == str(value)]
+    
+    # $select - select specific fields
+    if '$select' in args:
+        fields = [f.strip() for f in args['$select'].split(',')]
+        data = [{k: v for k, v in item.items() if k in fields} for item in data]
+    
+    # $orderby - sort data
+    if '$orderby' in args:
+        orderby = args['$orderby']
+        reverse = False
+        if ' desc' in orderby:
+            orderby = orderby.replace(' desc', '').strip()
+            reverse = True
+        elif ' asc' in orderby:
+            orderby = orderby.replace(' asc', '').strip()
+        data = sorted(data, key=lambda x: x.get(orderby, ''), reverse=reverse)
+    
+    # $top - limit number of results
+    if '$top' in args:
+        top = int(args['$top'])
+        data = data[:top]
+    
+    # $skip - skip number of results
+    if '$skip' in args:
+        skip = int(args['$skip'])
+        data = data[skip:]
+    
+    # $count - return count
+    if '$count' in args and args['$count'].lower() == 'true':
+        return jsonify({"@odata.count": len(data), "value": data})
+    
+    # OData response format
+    response = {
+        "@odata.context": f"{request.url_root}$metadata#SampleData",
+        "value": data
+    }
+    
+    return jsonify(response)
+
 # define the graphs endpoint here (actually, maybe not... )
 
 # Run app
