@@ -9,6 +9,7 @@ import io
 # Needed Libraries
 from flask import Flask, render_template, request
 import plotly.express as px
+from flask import jsonify
 import pandas as pd 
 import numpy as np
 import requests
@@ -95,6 +96,18 @@ def county_graph():
 
     # Return template and data
     return render_template("covid-by-county.html", list=locations, states = states, graphJSON=graphJSON)
+
+@app.route("/sample_data")
+def sample_data():
+    data = [
+        {"Date": "12/15/2025", "Value": 41},
+        {"Date": "12/16/2025", "Value": 22},
+        {"Date": "12/17/2025", "Value": 27},
+        {"Date": "12/18/2025", "Value": 33},
+        {"Date": "12/19/2025", "Value": 42},
+        {"Date": "12/20/2025", "Value": 41}
+    ]
+    return jsonify(data)
 
 # define the graphs endpoint here (actually, maybe not... )
 
