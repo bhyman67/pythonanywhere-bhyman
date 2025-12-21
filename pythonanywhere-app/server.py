@@ -101,8 +101,8 @@ def county_graph():
     return render_template("covid-by-county.html", list=locations, states = states, graphJSON=graphJSON)
 
 # OData v4 Metadata endpoint
-@app.route("/sample_data_2/$metadata")
-def sample_data_2_metadata():
+@app.route("/sample_data/$metadata")
+def sample_data_metadata():
     """OData v4 metadata document describing the SampleData entity"""
     metadata_xml = '''<?xml version="1.0" encoding="UTF-8"?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
@@ -124,11 +124,11 @@ def sample_data_2_metadata():
     return Response(metadata_xml, mimetype='application/xml', headers={'OData-Version': '4.0'})
 
 # OData v4 Service Document
-@app.route("/sample_data_2/")
-def sample_data_2_service_doc():
+@app.route("/sample_data/")
+def sample_data_service_doc():
     """OData v4 service document"""
     service_doc = {
-        "@odata.context": f"{request.url_root}sample_data_2/$metadata",
+        "@odata.context": f"{request.url_root}sample_data/$metadata",
         "value": [
             {
                 "name": "SampleData",
@@ -147,8 +147,8 @@ def sample_data_2_service_doc():
     )
 
 # OData v4 Data endpoint
-@app.route("/sample_data_2/SampleData")
-def sample_data_2():
+@app.route("/sample_data/SampleData")
+def sample_data():
     # Same data as sample_data - using ISO date format for Tableau compatibility
     data = [
         {"Date": "2025-12-15", "Value": 41},
@@ -203,14 +203,14 @@ def sample_data_2():
     # $count - return count
     if '$count' in args and args['$count'].lower() == 'true':
         odata_response = {
-            "@odata.context": f"{request.url_root}sample_data_2/$metadata#SampleData",
+            "@odata.context": f"{request.url_root}sample_data/$metadata#SampleData",
             "@odata.count": len(data),
             "value": data
         }
     else:
         # OData response format
         odata_response = {
-            "@odata.context": f"{request.url_root}sample_data_2/$metadata#SampleData",
+            "@odata.context": f"{request.url_root}sample_data/$metadata#SampleData",
             "value": data
         }
 
@@ -330,7 +330,7 @@ def garmin_activities_service_doc():
     )
 
 # OData v4 Data endpoint for Garmin Activities
-@app.route("/garmin_activities/Activities")
+@app.route("/garmin_activities/activities")
 def garmin_activities_data():
     """Fetch Garmin activities from MySQL database and return as OData JSON"""
     try:
