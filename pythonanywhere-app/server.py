@@ -7,7 +7,7 @@ import os
 import io
 
 # Needed Libraries
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Response
 import plotly.express as px
 from flask import jsonify
 import pandas as pd 
@@ -109,7 +109,54 @@ def sample_data():
     ]
     return jsonify(data)
 
-@app.route("/sample_data_2")
+# OData v4 Metadata endpoint
+@app.route("/sample_data_2/$metadata")
+def sample_data_2_metadata():
+    """OData v4 metadata document describing the SampleData entity"""
+    metadata_xml = '''<?xml version="1.0" encoding="UTF-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SampleDataService">
+      <EntityType Name="SampleDataItem">
+        <Key>
+          <PropertyRef Name="Date"/>
+        </Key>
+        <Property Name="Date" Type="Edm.String" Nullable="false"/>
+        <Property Name="Value" Type="Edm.Int32" Nullable="false"/>
+      </EntityType>
+      <EntityContainer Name="Container">
+        <EntitySet Name="SampleData" EntityType="SampleDataService.SampleDataItem"/>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>'''
+    return Response(metadata_xml, mimetype='application/xml', headers={'OData-Version': '4.0'})
+
+# OData v4 Service Document
+@app.route("/sample_data_2/")
+def sample_data_2_service_doc():
+    """OData v4 service document"""
+    service_doc = {
+        "@odata.context": f"{request.url_root}sample_data_2/$metadata",
+        "value": [
+            {
+                "name": "SampleData",
+                "kind": "EntitySet",
+                "url": "SampleData"
+            }
+        ]
+    }
+    return Response(
+        json.dumps(service_doc),
+        mimetype='application/json',
+        headers={
+            'OData-Version': '4.0',
+            'Content-Type': 'application/json; odata.metadata=minimal'
+        }
+    )
+
+# OData v4 Data endpoint
+@app.route("/sample_data_2/SampleData")
 def sample_data_2():
     # Same data as sample_data
     data = [
@@ -164,15 +211,26 @@ def sample_data_2():
     
     # $count - return count
     if '$count' in args and args['$count'].lower() == 'true':
-        return jsonify({"@odata.count": len(data), "value": data})
+        odata_response = {
+            "@odata.context": f"{request.url_root}sample_data_2/$metadata#SampleData",
+            "@odata.count": len(data),
+            "value": data
+        }
+    else:
+        # OData response format
+        odata_response = {
+            "@odata.context": f"{request.url_root}sample_data_2/$metadata#SampleData",
+            "value": data
+        }
     
-    # OData response format
-    response = {
-        "@odata.context": f"{request.url_root}$metadata#SampleData",
-        "value": data
-    }
-    
-    return jsonify(response)
+    return Response(
+        json.dumps(odata_response),
+        mimetype='application/json',
+        headers={
+            'OData-Version': '4.0',
+            'Content-Type': 'application/json; odata.metadata=minimal'
+        }
+    )
 
 # define the graphs endpoint here (actually, maybe not... )
 
