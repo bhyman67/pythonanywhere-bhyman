@@ -96,4 +96,4 @@ Access at `http://localhost:5000/covid-by-county`
 
 ---
 
-<p align="right">Click <a href="https://github.com/bhyman67/pythonanywhere-bhyman">here</a> to view this project's repository</p>
+<p align="right">Click <a href="https://github.com/bhyman67/pythonanywhere-bhyman/tree/main/pythonanywhere-app/covid_by_county">here</a> to view this project's repository</p>
