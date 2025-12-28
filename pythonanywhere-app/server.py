@@ -43,12 +43,13 @@ app = Flask(__name__)
 
 # Portfolio landing page
 @app.route("/")
-def portfolio():
-    return render_template("portfolio.html")
+def portfolio_landing_page():
+    
+    return render_template("portfolio_landing_page.html")
 
 # Covid by County app routes
 @app.route("/covid-by-county")
-def covid_home():
+def covid_by_county():
 
     # Pull the data and list all locations
     df = pull_data()
@@ -59,7 +60,7 @@ def covid_home():
     return render_template("covid-by-county.html", states = states, list = locations)
 
 @app.route("/covid-by-county/graph")
-def county_graph():
+def covid_by_county_graph():
 
     # Pull the data and list all locations
     df = pull_data()

@@ -1,0 +1,1198 @@
+================================================================================
+DATAFRAME STRUCTURE ANALYSIS
+================================================================================
+
+Shape: (990, 121)
+Total Rows: 990
+Total Columns: 121
+
+================================================================================
+COLUMN DATA TYPES
+================================================================================
+activityId            int64
+activityName         object
+startTimeLocal       object
+startTimeGMT         object
+activityType         object
+                     ...   
+surfaceInterval     float64
+floorsClimbed       float64
+floorsDescended     float64
+jumpCount           float64
+maxStrokeCadence    float64
+Length: 121, dtype: object
+
+================================================================================
+DETAILED COLUMN ANALYSIS
+================================================================================
+
+
+================================================================================
+Column: activityId
+================================================================================
+Python Type: int64
+Pandas dtype: int64
+Null Count: 0 (0.00%)
+Sample Value: 21350171618
+Unique Values: 990
+
+================================================================================
+Column: activityName
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 0 (0.00%)
+Max Length: 72
+Sample Value: Lakewood Running
+Unique Values: 159
+
+================================================================================
+Column: startTimeLocal
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 0 (0.00%)
+Max Length: 19
+Sample Value: 2025-12-25 13:28:36
+Unique Values: 990
+
+================================================================================
+Column: startTimeGMT
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 0 (0.00%)
+Max Length: 19
+Sample Value: 2025-12-25 20:28:36
+Unique Values: 990
+
+================================================================================
+Column: activityType
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 0 (0.00%)
+Max Length: 136
+Sample Value: {"typeId": 1, "typeKey": "running", "parentTypeId": 17, "isHidden": false, "restricted": false, "trimmable": true}
+Unique Values: 17
+Unique Values List: ['{"typeId": 1, "typeKey": "running", "parentTypeId": 17, "isHidden": false, "restricted": false, "trimmable": true}', '{"typeId": 163, "typeKey": "yoga", "parentTypeId": 29, "isHidden": false, "restricted": false, "trimmable": false}', '{"typeId": 180, "typeKey": "hiit", "parentTypeId": 29, "isHidden": false, "restricted": false, "trimmable": false}', '{"typeId": 4, "typeKey": "other", "parentTypeId": 17, "isHidden": false, "restricted": false, "trimmable": true}', '{"typeId": 6, "typeKey": "trail_running", "parentTypeId": 1, "isHidden": false, "restricted": false, "trimmable": true}', '{"typeId": 2, "typeKey": "cycling", "parentTypeId": 17, "isHidden": false, "restricted": false, "trimmable": true}', '{"typeId": 13, "typeKey": "strength_training", "parentTypeId": 29, "isHidden": false, "restricted": false, "trimmable": false}', '{"typeId": 164, "typeKey": "breathwork", "parentTypeId": 4, "isHidden": false, "restricted": false, "trimmable": false}', '{"typeId": 18, "typeKey": "treadmill_running", "parentTypeId": 1, "isHidden": false, "restricted": false, "trimmable": true}', '{"typeId": 9, "typeKey": "walking", "parentTypeId": 17, "isHidden": false, "restricted": false, "trimmable": true}', '{"typeId": 3, "typeKey": "hiking", "parentTypeId": 17, "isHidden": false, "restricted": false, "trimmable": true}', '{"typeId": 27, "typeKey": "lap_swimming", "parentTypeId": 26, "isHidden": false, "restricted": false, "trimmable": false}', '{"typeId": 5, "typeKey": "mountain_biking", "parentTypeId": 2, "isHidden": false, "restricted": false, "trimmable": true}', '{"typeId": 176, "typeKey": "e_bike_fitness", "parentTypeId": 2, "isHidden": false, "restricted": false, "trimmable": true}', '{"typeId": 174, "typeKey": "bouldering", "parentTypeId": 29, "isHidden": false, "restricted": false, "trimmable": false}', '{"typeId": 173, "typeKey": "indoor_climbing", "parentTypeId": 29, "isHidden": false, "restricted": false, "trimmable": false}', '{"typeId": 239, "typeKey": "stand_up_paddleboarding_v2", "parentTypeId": 228, "isHidden": false, "restricted": false, "trimmable": true}']
+
+================================================================================
+Column: eventType
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 0 (0.00%)
+Max Length: 58
+Sample Value: {"typeId": 9, "typeKey": "uncategorized", "sortOrder": 10}
+Unique Values: 1
+Unique Values List: ['{"typeId": 9, "typeKey": "uncategorized", "sortOrder": 10}']
+
+================================================================================
+Column: distance
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 64 (6.46%)
+Sample Value: 4789.3701171875
+Unique Values: 700
+
+================================================================================
+Column: duration
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 0 (0.00%)
+Sample Value: 2469.174072265625
+Unique Values: 947
+
+================================================================================
+Column: elapsedDuration
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 0 (0.00%)
+Sample Value: 2469.174072265625
+Unique Values: 946
+
+================================================================================
+Column: movingDuration
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 28 (2.83%)
+Sample Value: 1732.0
+Unique Values: 890
+
+================================================================================
+Column: elevationGain
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 359 (36.26%)
+Sample Value: 105.63999998569489
+Unique Values: 607
+
+================================================================================
+Column: elevationLoss
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 358 (36.16%)
+Sample Value: 188.97000002861023
+Unique Values: 614
+
+================================================================================
+Column: averageSpeed
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 64 (6.46%)
+Sample Value: 1.940000057220459
+Unique Values: 628
+
+================================================================================
+Column: maxSpeed
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 291 (29.39%)
+Sample Value: 3.38700008392334
+Unique Values: 425
+
+================================================================================
+Column: startLatitude
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 358 (36.16%)
+Sample Value: 39.68871837481856
+Unique Values: 626
+
+================================================================================
+Column: startLongitude
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 358 (36.16%)
+Sample Value: -105.12122808024287
+Unique Values: 628
+
+================================================================================
+Column: hasPolyline
+================================================================================
+Python Type: bool
+Pandas dtype: bool
+Null Count: 0 (0.00%)
+Sample Value: True
+Unique Values: 2
+Unique Values List: [np.True_, np.False_]
+
+================================================================================
+Column: hasImages
+================================================================================
+Python Type: bool
+Pandas dtype: bool
+Null Count: 0 (0.00%)
+Sample Value: False
+Unique Values: 1
+Unique Values List: [np.False_]
+
+================================================================================
+Column: ownerId
+================================================================================
+Python Type: int64
+Pandas dtype: int64
+Null Count: 0 (0.00%)
+Sample Value: 80143221
+Unique Values: 1
+Unique Values List: [np.int64(80143221)]
+
+================================================================================
+Column: ownerDisplayName
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 0 (0.00%)
+Max Length: 36
+Sample Value: 38b915e8-ae8c-4881-a39e-5dab7c3bade7
+Unique Values: 1
+Unique Values List: ['38b915e8-ae8c-4881-a39e-5dab7c3bade7']
+
+================================================================================
+Column: ownerFullName
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 0 (0.00%)
+Max Length: 11
+Sample Value: Brent Hyman
+Unique Values: 1
+Unique Values List: ['Brent Hyman']
+
+================================================================================
+Column: ownerProfileImageUrlSmall
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 0 (0.00%)
+Max Length: 105
+Sample Value: https://s3.amazonaws.com/garmin-connect-prod/profile_images/b5ae47c0-1682-44ee-8f34-3e89f4d6a0df-prth.png
+Unique Values: 1
+Unique Values List: ['https://s3.amazonaws.com/garmin-connect-prod/profile_images/b5ae47c0-1682-44ee-8f34-3e89f4d6a0df-prth.png']
+
+================================================================================
+Column: ownerProfileImageUrlMedium
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 0 (0.00%)
+Max Length: 105
+Sample Value: https://s3.amazonaws.com/garmin-connect-prod/profile_images/b5ae47c0-1682-44ee-8f34-3e89f4d6a0df-prfr.png
+Unique Values: 1
+Unique Values List: ['https://s3.amazonaws.com/garmin-connect-prod/profile_images/b5ae47c0-1682-44ee-8f34-3e89f4d6a0df-prfr.png']
+
+================================================================================
+Column: ownerProfileImageUrlLarge
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 0 (0.00%)
+Max Length: 105
+Sample Value: https://s3.amazonaws.com/garmin-connect-prod/profile_images/b5ae47c0-1682-44ee-8f34-3e89f4d6a0df-prof.png
+Unique Values: 1
+Unique Values List: ['https://s3.amazonaws.com/garmin-connect-prod/profile_images/b5ae47c0-1682-44ee-8f34-3e89f4d6a0df-prof.png']
+
+================================================================================
+Column: calories
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 9 (0.91%)
+Sample Value: 325.0
+Unique Values: 506
+
+================================================================================
+Column: bmrCalories
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 26 (2.63%)
+Sample Value: 49.0
+Unique Values: 150
+
+================================================================================
+Column: averageHR
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 35 (3.54%)
+Sample Value: 134.0
+Unique Values: 114
+
+================================================================================
+Column: maxHR
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 35 (3.54%)
+Sample Value: 165.0
+Unique Values: 128
+
+================================================================================
+Column: averageRunningCadenceInStepsPerMinute
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 456 (46.06%)
+Sample Value: 119.375
+Unique Values: 504
+
+================================================================================
+Column: maxRunningCadenceInStepsPerMinute
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 456 (46.06%)
+Sample Value: 193.0
+Unique Values: 91
+
+================================================================================
+Column: steps
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 220 (22.22%)
+Sample Value: 5066.0
+Unique Values: 541
+
+================================================================================
+Column: userRoles
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 0 (0.00%)
+Max Length: 754
+Sample Value: ["SCOPE_GOLF_API_READ", "SCOPE_DI_OAUTH_2_CREATE_DI_USER", "SCOPE_ATP_READ", "SCOPE_DIVE_API_WRITE", "SCOPE_COMMUNITY_COURSE_ADMIN_READ", "SCOPE_DIVE_API_READ", "SCOPE_DI_OAUTH_2_CLIENT_READ", "SCOPE_CONNECT_WRITE", "SCOPE_COMMUNITY_COURSE_WRITE", "SCOPE_CONNECT_MCT_DAILY_LOG_READ", "SCOPE_CONNECT_API_CREATE_UPDATE_USER", "SCOPE_MESSAGE_GENERATION_READ", "SCOPE_DI_OAUTH_2_CLIENT_REVOCATION_ADMIN", "SCOPE_CONNECT_WEB_TEMPLATE_RENDER", "SCOPE_OMT_SUBSCRIPTION_ADMIN_READ", "SCOPE_DI_OAUTH_2_MANAGED_STATUS_ADMIN_WRITE", "SCOPE_CONNECT_NON_SOCIAL_SHARED_READ", "SCOPE_CONNECT_READ", "SCOPE_DI_OAUTH_2_PRERELEASE_PERMISSIONS_ADMIN_WRITE", "SCOPE_DI_OAUTH_2_TOKEN_ADMIN", "ROLE_CONNECTUSER", "ROLE_FITNESS_USER", "ROLE_WELLNESS_USER", "ROLE_OUTDOOR_USER"]
+Unique Values: 1
+Unique Values List: ['["SCOPE_GOLF_API_READ", "SCOPE_DI_OAUTH_2_CREATE_DI_USER", "SCOPE_ATP_READ", "SCOPE_DIVE_API_WRITE", "SCOPE_COMMUNITY_COURSE_ADMIN_READ", "SCOPE_DIVE_API_READ", "SCOPE_DI_OAUTH_2_CLIENT_READ", "SCOPE_CONNECT_WRITE", "SCOPE_COMMUNITY_COURSE_WRITE", "SCOPE_CONNECT_MCT_DAILY_LOG_READ", "SCOPE_CONNECT_API_CREATE_UPDATE_USER", "SCOPE_MESSAGE_GENERATION_READ", "SCOPE_DI_OAUTH_2_CLIENT_REVOCATION_ADMIN", "SCOPE_CONNECT_WEB_TEMPLATE_RENDER", "SCOPE_OMT_SUBSCRIPTION_ADMIN_READ", "SCOPE_DI_OAUTH_2_MANAGED_STATUS_ADMIN_WRITE", "SCOPE_CONNECT_NON_SOCIAL_SHARED_READ", "SCOPE_CONNECT_READ", "SCOPE_DI_OAUTH_2_PRERELEASE_PERMISSIONS_ADMIN_WRITE", "SCOPE_DI_OAUTH_2_TOKEN_ADMIN", "ROLE_CONNECTUSER", "ROLE_FITNESS_USER", "ROLE_WELLNESS_USER", "ROLE_OUTDOOR_USER"]']
+
+================================================================================
+Column: privacy
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 0 (0.00%)
+Max Length: 35
+Sample Value: {"typeId": 1, "typeKey": "public"}
+Unique Values: 2
+Unique Values List: ['{"typeId": 1, "typeKey": "public"}', '{"typeId": 2, "typeKey": "private"}']
+
+================================================================================
+Column: userPro
+================================================================================
+Python Type: bool
+Pandas dtype: bool
+Null Count: 0 (0.00%)
+Sample Value: False
+Unique Values: 1
+Unique Values List: [np.False_]
+
+================================================================================
+Column: hasVideo
+================================================================================
+Python Type: bool
+Pandas dtype: bool
+Null Count: 0 (0.00%)
+Sample Value: False
+Unique Values: 1
+Unique Values List: [np.False_]
+
+================================================================================
+Column: timeZoneId
+================================================================================
+Python Type: int64
+Pandas dtype: int64
+Null Count: 0 (0.00%)
+Sample Value: 153
+Unique Values: 5
+Unique Values List: [np.int64(153), np.int64(121), np.int64(152), np.int64(148), np.int64(149)]
+
+================================================================================
+Column: beginTimestamp
+================================================================================
+Python Type: int64
+Pandas dtype: int64
+Null Count: 0 (0.00%)
+Sample Value: 1766694516000
+Unique Values: 990
+
+================================================================================
+Column: sportTypeId
+================================================================================
+Python Type: int64
+Pandas dtype: int64
+Null Count: 0 (0.00%)
+Sample Value: 1
+Unique Values: 13
+Unique Values List: [np.int64(1), np.int64(10), np.int64(62), np.int64(255), np.int64(2), np.int64(0), np.int64(4), np.int64(11), np.int64(17), np.int64(5), np.int64(31), np.int64(21), np.int64(37)]
+
+================================================================================
+Column: aerobicTrainingEffect
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 34 (3.43%)
+Sample Value: 3.4000000953674316
+Unique Values: 51
+
+================================================================================
+Column: anaerobicTrainingEffect
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 34 (3.43%)
+Sample Value: 0.0
+Unique Values: 31
+
+================================================================================
+Column: avgStrideLength
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 456 (46.06%)
+Sample Value: 96.84041024532509
+Unique Values: 534
+
+================================================================================
+Column: deviceId
+================================================================================
+Python Type: int64
+Pandas dtype: int64
+Null Count: 0 (0.00%)
+Sample Value: 3399827459
+Unique Values: 2
+Unique Values List: [np.int64(3399827459), np.int64(0)]
+
+================================================================================
+Column: minTemperature
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 36 (3.64%)
+Sample Value: 22.0
+Unique Values: 34
+
+================================================================================
+Column: maxTemperature
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 36 (3.64%)
+Sample Value: 27.0
+Unique Values: 30
+
+================================================================================
+Column: minElevation
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 355 (35.86%)
+Sample Value: 1731.800048828125
+Unique Values: 436
+
+================================================================================
+Column: maxElevation
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 355 (35.86%)
+Sample Value: 1788.4000244140625
+Unique Values: 486
+
+================================================================================
+Column: maxDoubleCadence
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 456 (46.06%)
+Sample Value: 193.0
+Unique Values: 91
+
+================================================================================
+Column: summarizedDiveInfo
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 0 (0.00%)
+Max Length: 27
+Sample Value: {"summarizedDiveGases": []}
+Unique Values: 1
+Unique Values List: ['{"summarizedDiveGases": []}']
+
+================================================================================
+Column: maxVerticalSpeed
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 355 (35.86%)
+Sample Value: 3.2000732421875
+Unique Values: 122
+
+================================================================================
+Column: manufacturer
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 0 (0.00%)
+Max Length: 6
+Sample Value: GARMIN
+Unique Values: 2
+Unique Values List: ['GARMIN', '']
+
+================================================================================
+Column: locationName
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 361 (36.46%)
+Max Length: 18
+Sample Value: Lakewood
+Unique Values: 38
+
+================================================================================
+Column: lapCount
+================================================================================
+Python Type: int64
+Pandas dtype: int64
+Null Count: 0 (0.00%)
+Sample Value: 3
+Unique Values: 19
+Unique Values List: [np.int64(3), np.int64(1), np.int64(6), np.int64(2), np.int64(5), np.int64(4), np.int64(8), np.int64(7), np.int64(16), np.int64(14), np.int64(18), np.int64(9), np.int64(77), np.int64(20), np.int64(11), np.int64(10), np.int64(40), np.int64(106), np.int64(105)]
+
+================================================================================
+Column: endLatitude
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 358 (36.16%)
+Sample Value: 39.69299700111151
+Unique Values: 626
+
+================================================================================
+Column: endLongitude
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 358 (36.16%)
+Sample Value: -105.1322527974844
+Unique Values: 631
+
+================================================================================
+Column: waterEstimated
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 36 (3.64%)
+Sample Value: 436.0
+Unique Values: 581
+
+================================================================================
+Column: trainingEffectLabel
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 34 (3.43%)
+Max Length: 18
+Sample Value: TEMPO
+Unique Values: 7
+Unique Values List: ['TEMPO', 'UNKNOWN', 'AEROBIC_BASE', 'VO2MAX', 'ANAEROBIC_CAPACITY', 'RECOVERY', 'LACTATE_THRESHOLD', nan]
+
+================================================================================
+Column: activityTrainingLoad
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 34 (3.43%)
+Sample Value: 100.45515441894531
+Unique Values: 952
+
+================================================================================
+Column: minActivityLapDuration
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 0 (0.00%)
+Sample Value: 584.510009765625
+Unique Values: 945
+
+================================================================================
+Column: aerobicTrainingEffectMessage
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 34 (3.43%)
+Max Length: 37
+Sample Value: IMPROVING_AEROBIC_FITNESS_2
+Unique Values: 19
+Unique Values List: ['IMPROVING_AEROBIC_FITNESS_2', 'NO_AEROBIC_BENEFIT_18', 'MAINTAINING_AEROBIC_FITNESS_1', 'IMPACTING_TEMPO_22', 'MAINTAINING_TEMPO_21', 'OVERREACHING_17', 'IMPROVING_AEROBIC_ENDURANCE_9', 'IMPROVING_AEROBIC_BASE_8', 'HIGHLY_IMPROVING_VO2_MAX_16', 'MINOR_AEROBIC_BENEFIT_6', 'MINOR_AEROBIC_BENEFIT_0', 'RECOVERY_5', 'IMPROVING_VO2_MAX_15', 'MAINTAINING_AEROBIC_BASE_7', 'HIGHLY_IMPROVING_LACTATE_THRESHOLD_13', 'IMPROVING_LACTATE_THRESHOLD_12', nan, 'HIGHLY_IMPROVING_AEROBIC_FITNESS_3', 'HIGHLY_IMPROVING_AEROBIC_ENDURANCE_10', 'HIGHLY_IMPACTING_TEMPO_23']
+
+================================================================================
+Column: anaerobicTrainingEffectMessage
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 34 (3.43%)
+Max Length: 28
+Sample Value: NO_ANAEROBIC_BENEFIT_0
+Unique Values: 4
+Unique Values List: ['NO_ANAEROBIC_BENEFIT_0', 'MINOR_ANAEROBIC_BENEFIT_15', 'MAINTAINING_ANAEROBIC_BASE_1', nan, 'IMPROVING_ANAEROBIC_BASE_2']
+
+================================================================================
+Column: splitSummaries
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 0 (0.00%)
+Max Length: 1094
+Sample Value: [{"noOfSplits": 12, "totalAscent": 10.449999988079071, "duration": 250.99899291992188, "splitType": "RWD_WALK", "numClimbSends": 0, "maxElevationGain": 4.5, "averageElevationGain": 0.8399999737739563, "maxDistance": 141, "distance": 255.25999450683594, "averageSpeed": 1.0169999599456787, "maxSpeed": 2.1459999084472656, "numFalls": 0, "elevationLoss": 24.569999992847443}, {"noOfSplits": 12, "totalAscent": 0.0, "duration": 684.1079711914062, "splitType": "RWD_STAND", "numClimbSends": 0, "maxElevationGain": 0.0, "averageElevationGain": 0.0, "maxDistance": 26, "distance": 49.459999084472656, "averageSpeed": 0.07199999690055847, "maxSpeed": 0.0, "numFalls": 0, "elevationLoss": 0.0}, {"noOfSplits": 7, "totalAscent": 95.75, "duration": 1538.0009765625, "splitType": "RWD_RUN", "numClimbSends": 0, "maxElevationGain": 34.87999999523163, "averageElevationGain": 13.839999973773956, "maxDistance": 1403, "distance": 4484.64990234375, "averageSpeed": 2.9159998893737793, "maxSpeed": 3.38700008392334, "numFalls": 0, "elevationLoss": 164.40999999642372}]
+Unique Values: 577
+
+================================================================================
+Column: hasSplits
+================================================================================
+Python Type: bool
+Pandas dtype: bool
+Null Count: 0 (0.00%)
+Sample Value: True
+Unique Values: 2
+Unique Values List: [np.True_, np.False_]
+
+================================================================================
+Column: moderateIntensityMinutes
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 90 (9.09%)
+Sample Value: 3.0
+Unique Values: 63
+
+================================================================================
+Column: vigorousIntensityMinutes
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 90 (9.09%)
+Sample Value: 26.0
+Unique Values: 94
+
+================================================================================
+Column: hasHeatMap
+================================================================================
+Python Type: bool
+Pandas dtype: bool
+Null Count: 0 (0.00%)
+Sample Value: False
+Unique Values: 1
+Unique Values List: [np.False_]
+
+================================================================================
+Column: fastestSplit_1000
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 876 (88.48%)
+Sample Value: 304.8630065917969
+Unique Values: 114
+
+================================================================================
+Column: fastestSplit_1609
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 877 (88.59%)
+Sample Value: 573.02197265625
+Unique Values: 113
+
+================================================================================
+Column: hrTimeInZone_1
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 749 (75.66%)
+Sample Value: 560.216
+Unique Values: 230
+
+================================================================================
+Column: hrTimeInZone_2
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 749 (75.66%)
+Sample Value: 218.998
+Unique Values: 229
+
+================================================================================
+Column: hrTimeInZone_3
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 749 (75.66%)
+Sample Value: 936.996
+Unique Values: 211
+
+================================================================================
+Column: hrTimeInZone_4
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 749 (75.66%)
+Sample Value: 590.999
+Unique Values: 177
+
+================================================================================
+Column: hrTimeInZone_5
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 749 (75.66%)
+Sample Value: 0.0
+Unique Values: 113
+
+================================================================================
+Column: endTimeGMT
+================================================================================
+Python Type: str
+Pandas dtype: object
+Null Count: 0 (0.00%)
+Max Length: 19
+Sample Value: 2025-12-25 21:09:45
+Unique Values: 990
+
+================================================================================
+Column: qualifyingDive
+================================================================================
+Python Type: bool
+Pandas dtype: bool
+Null Count: 0 (0.00%)
+Sample Value: False
+Unique Values: 1
+Unique Values List: [np.False_]
+
+================================================================================
+Column: decoDive
+================================================================================
+Python Type: bool
+Pandas dtype: bool
+Null Count: 0 (0.00%)
+Sample Value: False
+Unique Values: 1
+Unique Values List: [np.False_]
+
+================================================================================
+Column: elevationCorrected
+================================================================================
+Python Type: bool
+Pandas dtype: bool
+Null Count: 0 (0.00%)
+Sample Value: False
+Unique Values: 2
+Unique Values List: [np.False_, np.True_]
+
+================================================================================
+Column: atpActivity
+================================================================================
+Python Type: bool
+Pandas dtype: bool
+Null Count: 0 (0.00%)
+Sample Value: False
+Unique Values: 1
+Unique Values List: [np.False_]
+
+================================================================================
+Column: purposeful
+================================================================================
+Python Type: bool
+Pandas dtype: bool
+Null Count: 0 (0.00%)
+Sample Value: False
+Unique Values: 1
+Unique Values List: [np.False_]
+
+================================================================================
+Column: manualActivity
+================================================================================
+Python Type: bool
+Pandas dtype: bool
+Null Count: 0 (0.00%)
+Sample Value: False
+Unique Values: 2
+Unique Values List: [np.False_, np.True_]
+
+================================================================================
+Column: pr
+================================================================================
+Python Type: bool
+Pandas dtype: bool
+Null Count: 0 (0.00%)
+Sample Value: False
+Unique Values: 2
+Unique Values List: [np.False_, np.True_]
+
+================================================================================
+Column: autoCalcCalories
+================================================================================
+Python Type: bool
+Pandas dtype: bool
+Null Count: 0 (0.00%)
+Sample Value: False
+Unique Values: 2
+Unique Values List: [np.False_, np.True_]
+
+================================================================================
+Column: favorite
+================================================================================
+Python Type: bool
+Pandas dtype: bool
+Null Count: 0 (0.00%)
+Sample Value: False
+Unique Values: 1
+Unique Values List: [np.False_]
+
+================================================================================
+Column: parent
+================================================================================
+Python Type: bool
+Pandas dtype: bool
+Null Count: 0 (0.00%)
+Sample Value: False
+Unique Values: 1
+Unique Values List: [np.False_]
+
+================================================================================
+Column: summarizedExerciseSets
+================================================================================
+Python Type: float
+Pandas dtype: object
+Null Count: 752 (75.96%)
+Sample Value: nan
+Unique Values: 238
+
+================================================================================
+Column: totalSets
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 752 (75.96%)
+Sample Value: nan
+Unique Values: 6
+Unique Values List: [np.float64(nan), np.float64(1.0), np.float64(3.0), np.float64(5.0), np.float64(2.0), np.float64(4.0), np.float64(6.0)]
+
+================================================================================
+Column: activeSets
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 752 (75.96%)
+Sample Value: nan
+Unique Values: 6
+Unique Values List: [np.float64(nan), np.float64(1.0), np.float64(3.0), np.float64(5.0), np.float64(2.0), np.float64(4.0), np.float64(6.0)]
+
+================================================================================
+Column: totalReps
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 752 (75.96%)
+Sample Value: nan
+Unique Values: 39
+
+================================================================================
+Column: minRespirationRate
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 918 (92.73%)
+Sample Value: nan
+Unique Values: 66
+
+================================================================================
+Column: maxRespirationRate
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 918 (92.73%)
+Sample Value: nan
+Unique Values: 72
+
+================================================================================
+Column: avgRespirationRate
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 918 (92.73%)
+Sample Value: nan
+Unique Values: 69
+
+================================================================================
+Column: avgStress
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 927 (93.64%)
+Sample Value: nan
+Unique Values: 43
+
+================================================================================
+Column: startStress
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 927 (93.64%)
+Sample Value: nan
+Unique Values: 43
+
+================================================================================
+Column: endStress
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 927 (93.64%)
+Sample Value: nan
+Unique Values: 35
+
+================================================================================
+Column: differenceStress
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 927 (93.64%)
+Sample Value: nan
+Unique Values: 44
+
+================================================================================
+Column: maxStress
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 927 (93.64%)
+Sample Value: nan
+Unique Values: 29
+
+================================================================================
+Column: vO2MaxValue
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 715 (72.22%)
+Sample Value: nan
+Unique Values: 9
+Unique Values List: [np.float64(nan), np.float64(53.0), np.float64(54.0), np.float64(55.0), np.float64(57.0), np.float64(58.0), np.float64(56.0), np.float64(52.0), np.float64(51.0), np.float64(50.0)]
+
+================================================================================
+Column: fastestSplit_5000
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 934 (94.34%)
+Sample Value: nan
+Unique Values: 56
+
+================================================================================
+Column: fastestSplit_10000
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 974 (98.38%)
+Sample Value: nan
+Unique Values: 16
+Unique Values List: [np.float64(nan), np.float64(4369.4580078125), np.float64(3092.591064453125), np.float64(4997.251953125), np.float64(2878.85693359375), np.float64(7566.83984375), np.float64(4423.85791015625), np.float64(4384.79296875), np.float64(3437.532958984375), np.float64(4637.22216796875), np.float64(3486.79296875), np.float64(4465.05615234375), np.float64(3501.740966796875), np.float64(4142.5322265625), np.float64(4433.76806640625), np.float64(4953.625), np.float64(3478.971923828125)]
+
+================================================================================
+Column: courseId
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 955 (96.46%)
+Sample Value: nan
+Unique Values: 33
+
+================================================================================
+Column: maxFtp
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 885 (89.39%)
+Sample Value: nan
+Unique Values: 1
+Unique Values List: [np.float64(nan), np.float64(163.0)]
+
+================================================================================
+Column: description
+================================================================================
+Python Type: float
+Pandas dtype: object
+Null Count: 984 (99.39%)
+Sample Value: nan
+Unique Values: 6
+Unique Values List: [nan, 'It was good!', 'Power Tower and Weights Down in the Basement', 'Yeti Chase 10k', 'First time as a member. ', 'This felt awful... ', 'Curl plus overhead press']
+
+================================================================================
+Column: fastestSplit_21098
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 984 (99.39%)
+Sample Value: nan
+Unique Values: 6
+Unique Values List: [np.float64(nan), np.float64(12781.375), np.float64(6468.25390625), np.float64(20928.08203125), np.float64(10781.75390625), np.float64(9646.455078125), np.float64(11522.9033203125)]
+
+================================================================================
+Column: avgVerticalSpeed
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 925 (93.43%)
+Sample Value: nan
+Unique Values: 1
+Unique Values List: [np.float64(nan), np.float64(0.0)]
+
+================================================================================
+Column: caloriesConsumed
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 921 (93.03%)
+Sample Value: nan
+Unique Values: 1
+Unique Values List: [np.float64(nan), np.float64(0.0)]
+
+================================================================================
+Column: waterConsumed
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 921 (93.03%)
+Sample Value: nan
+Unique Values: 1
+Unique Values List: [np.float64(nan), np.float64(0.0)]
+
+================================================================================
+Column: workoutId
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 988 (99.80%)
+Sample Value: nan
+Unique Values: 2
+Unique Values List: [np.float64(nan), np.float64(583698556.0), np.float64(790068142.0)]
+
+================================================================================
+Column: averageSwimCadenceInStrokesPerMinute
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 988 (99.80%)
+Sample Value: nan
+Unique Values: 2
+Unique Values List: [np.float64(nan), np.float64(20.0), np.float64(23.0)]
+
+================================================================================
+Column: averageSwolf
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 988 (99.80%)
+Sample Value: nan
+Unique Values: 2
+Unique Values List: [np.float64(nan), np.float64(74.0), np.float64(39.0)]
+
+================================================================================
+Column: activeLengths
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 988 (99.80%)
+Sample Value: nan
+Unique Values: 2
+Unique Values List: [np.float64(nan), np.float64(4.0), np.float64(25.0)]
+
+================================================================================
+Column: poolLength
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 988 (99.80%)
+Sample Value: nan
+Unique Values: 1
+Unique Values List: [np.float64(nan), np.float64(2500.0)]
+
+================================================================================
+Column: unitOfPoolLength
+================================================================================
+Python Type: float
+Pandas dtype: object
+Null Count: 988 (99.80%)
+Sample Value: nan
+Unique Values: 1
+Unique Values List: [nan, '{"unitId": 1, "unitKey": "meter", "factor": 100.0}']
+
+================================================================================
+Column: strokes
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 987 (99.70%)
+Sample Value: nan
+Unique Values: 3
+Unique Values List: [np.float64(nan), np.float64(75.0), np.float64(548.0), np.float64(273.0)]
+
+================================================================================
+Column: avgStrokeDistance
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 987 (99.70%)
+Sample Value: nan
+Unique Values: 2
+Unique Values List: [np.float64(nan), np.float64(0.0), np.float64(204.99999523162842)]
+
+================================================================================
+Column: avgStrokes
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 988 (99.80%)
+Sample Value: nan
+Unique Values: 2
+Unique Values List: [np.float64(nan), np.float64(18.799999237060547), np.float64(10.899999618530273)]
+
+================================================================================
+Column: grit
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 984 (99.39%)
+Sample Value: nan
+Unique Values: 6
+Unique Values List: [np.float64(nan), np.float64(14.746874809265137), np.float64(29.212499618530273), np.float64(13.068750381469727), np.float64(25.129688262939453), np.float64(6.328125), np.float64(16.959375381469727)]
+
+================================================================================
+Column: avgFlow
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 984 (99.39%)
+Sample Value: nan
+Unique Values: 6
+Unique Values List: [np.float64(nan), np.float64(2.666163682937622), np.float64(2.913102388381958), np.float64(3.4676883220672607), np.float64(3.6245107650756836), np.float64(2.6262121200561523), np.float64(2.6883678436279297)]
+
+================================================================================
+Column: surfaceInterval
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 989 (99.90%)
+Sample Value: nan
+Unique Values: 1
+Unique Values List: [np.float64(nan), np.float64(0.0)]
+
+================================================================================
+Column: floorsClimbed
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 989 (99.90%)
+Sample Value: nan
+Unique Values: 1
+Unique Values List: [np.float64(nan), np.float64(0.0)]
+
+================================================================================
+Column: floorsDescended
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 989 (99.90%)
+Sample Value: nan
+Unique Values: 1
+Unique Values List: [np.float64(nan), np.float64(0.0)]
+
+================================================================================
+Column: jumpCount
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 989 (99.90%)
+Sample Value: nan
+Unique Values: 1
+Unique Values List: [np.float64(nan), np.float64(-1.0)]
+
+================================================================================
+Column: maxStrokeCadence
+================================================================================
+Python Type: float64
+Pandas dtype: float64
+Null Count: 989 (99.90%)
+Sample Value: nan
+Unique Values: 1
+Unique Values List: [np.float64(nan), np.float64(56.0)]

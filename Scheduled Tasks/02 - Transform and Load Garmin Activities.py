@@ -1,21 +1,46 @@
-import pandas as pd
-import sys
-import os
 from datetime import timedelta
-import math
 from sqlalchemy import text
+import pandas as pd
+import sys, os
+import math
 
-# Add parent directory to path to import db_connection module
+# ============================================================================
+# SETUP: Add parent directory to path for custom db_connection module import
+# ============================================================================
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 from db_connection import is_database_available, get_db_engine
 
-from garminconnect import (
-    Garmin,
-    GarminConnectAuthenticationError,
-    GarminConnectTooManyRequestsError,
-    GarminConnectConnectionError
-)
+# ============================================================================
+# DATA EXTRACTION: Load ingested activities from MySQL database
+# ============================================================================
+# Get database engine and load the ingested activities table
+engine = get_db_engine()
+query = "SELECT * FROM ingested_garmin_connect_activities"
 
+print("Loading activities from database...")
+activities_df = pd.read_sql(query, engine)
+print(f"Loaded {len(activities_df)} activities from ingested_garmin_connect_activities table")
+
+# ============================================================================
+# JSON PARSING: Parse JSON string columns back to Python objects
+# ============================================================================
+import json
+
+# List of columns that contain JSON strings that need to be parsed
+json_columns = ['activityType', 'eventType', 'privacy', 'userRoles', 'summarizedDiveInfo', 
+                'splitSummaries', 'summarizedExerciseSets', 'unitOfPoolLength']
+
+for col in json_columns:
+    if col in activities_df.columns:
+        activities_df[col] = activities_df[col].apply(
+            lambda x: json.loads(x) if pd.notna(x) and x != '' else x
+        )
+
+print("JSON columns parsed successfully")
+
+# ============================================================================
+# TRANSFORMATION FUNCTIONS: Helper functions for data transformations
+# ============================================================================
 # Function to convert seconds to HH:MM:SS format
 def convert_to_elapsed_time(seconds):
 
@@ -36,52 +61,9 @@ def add_avg_weight_per_rep(exercise_sets):
 
     return exercise_sets
 
-# Setup Garmin Connect client object with credentials
-# Try to use environment variables first, fall back to local retrieve_creds
-use_database = is_database_available()
-
-# Check if running on PythonAnywhere (environment variables set in .bashrc)
-if os.getenv('GARMIN_EMAIL') and use_database:
-    username = os.getenv('GARMIN_EMAIL')
-    password = os.getenv('GARMIN_PASSWORD')
-    print("Using environment variables - will write to database")
-else:
-    from retrieve_creds import retrieve_creds
-    username, password = retrieve_creds('Garmin Connect/Explore')
-    print("Using local retrieve_creds method - will write to CSV")
-
-# Attempt to login
-try:
-    client = Garmin(username, password)
-    client.login()
-    print("Login successful!")
-except GarminConnectAuthenticationError:
-    print("Authentication error. Check your credentials.")
-except GarminConnectTooManyRequestsError:
-    print("Too many requests. Try again later.")
-except GarminConnectConnectionError:
-    print("Connection error. Check your internet connection.")
-
-# Retrieve up to 5,000 activities in 5 separate calls of 1000 each
-all_activities = []
-batch_size = 1000
-num_batches = 5
-
-for i in range(num_batches):
-    start_index = i * batch_size
-    print(f"Fetching activities {start_index} to {start_index + batch_size - 1}...")
-    try:
-        batch_activities = client.get_activities(start_index, batch_size)
-        all_activities.extend(batch_activities)
-        print(f"Retrieved {len(batch_activities)} activities in batch {i+1}")
-    except Exception as e:
-        print(f"Error fetching batch {i+1}: {e}")
-        break
-
-print(f"Total activities retrieved: {len(all_activities)}")
-activities_df = pd.DataFrame(all_activities)
-
-
+# ============================================================================
+# DATA TRANSFORMATION: Clean, transform, and format activity data
+# ============================================================================
 # DATA PREP ==> Cleaning/Transforming/Formating
 activities_df['duration'] = activities_df['duration'].fillna(0).apply(convert_to_elapsed_time)
 activities_df['elapsedDuration'] = activities_df['elapsedDuration'].fillna(0).apply(convert_to_elapsed_time)
@@ -185,37 +167,29 @@ activities_df = activities_df[renaming_dict.keys()]
 # Rename the columns
 activities_df.rename(columns=renaming_dict, inplace=True)
 
-# Write data to database or CSV depending on environment
-if use_database:
-    # Connect to MySQL database and write data
-    try:
-        # Get database engine from shared module
-        engine = get_db_engine()
-        
-        # Truncate the table before inserting new data
-        with engine.begin() as connection:
-            connection.execute(text('TRUNCATE TABLE garmin_connect_activities'))
-            #connection.commit()
-            print("Table truncated successfully")
-        
-        # Write DataFrame to MySQL table
-        activities_df.to_sql(
-            name='garmin_connect_activities',
-            con=engine,
-            if_exists='append',
-            index=False,
-            chunksize=1000
-        )
-        
-        print(f"Successfully wrote {len(activities_df)} records to MySQL database")
-        
-    except Exception as e:
-        print(f"Error writing to database: {e}")
-        raise
-else:
-    # Write to CSV for local testing
-    csv_filename = 'Garmin_Activities_Output.csv'
-    activities_df.to_csv(csv_filename, index=False)
-    print(f"Successfully wrote {len(activities_df)} records to {csv_filename}")
-
+# Connect to MySQL database and write data
+try:
+    # Get database engine from shared module
+    engine = get_db_engine()
+    
+    # Truncate the table before inserting new data
+    with engine.begin() as connection:
+        connection.execute(text('TRUNCATE TABLE garmin_connect_activities'))
+        #connection.commit()
+        print("Table truncated successfully")
+    
+    # Write DataFrame to MySQL table
+    activities_df.to_sql(
+        name='garmin_connect_activities',
+        con=engine,
+        if_exists='append',
+        index=False,
+        chunksize=1000
+    )
+    
+    print(f"Successfully wrote {len(activities_df)} records to MySQL database")
+    
+except Exception as e:
+    print(f"Error writing to database: {e}")
+    raise
 
