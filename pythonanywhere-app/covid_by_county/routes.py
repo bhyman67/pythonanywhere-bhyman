@@ -9,8 +9,14 @@ import plotly
 import plotly.express as px
 from flask import Blueprint, render_template, request
 
-# Create blueprint
-covid_bp = Blueprint('covid', __name__, url_prefix='/covid-by-county')
+# Create blueprint with its own templates and static folders
+covid_bp = Blueprint(
+    'covid', 
+    __name__, 
+    url_prefix='/covid-by-county',
+    template_folder='templates',
+    static_folder='static'
+)
 
 def pull_data():
     """Pull COVID-19 data from Johns Hopkins GitHub repository"""

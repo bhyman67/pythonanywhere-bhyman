@@ -24,7 +24,7 @@
 
       $(function() {
         $("#text-three").change(function() {
-          $("#text-four").load(encodeURI('/static/covid-by-county/' + $(this).val() + ".txt"));
+          $("#text-four").load(encodeURI('/covid-by-county/static/' + $(this).val() + ".txt"));
         });
       });
 
