@@ -4,7 +4,9 @@ A Flask blueprint providing OData v4.0 compliant REST API endpoints for accessin
 
 ## Overview
 
-This module exposes Garmin fitness activity data through standardized OData endpoints, enabling integration with Microsoft Power BI, Excel, and other OData-compatible analytics tools. The service provides comprehensive activity metrics including distance, duration, heart rate, calories, elevation, and training effects.
+This module exposes Garmin fitness activity data through standardized OData endpoints, enabling integration with Tableau, Excel, and other OData-compatible analytics tools. The service provides comprehensive activity metrics including distance, duration, heart rate, calories, elevation, and training effects.
+
+**Live API Endpoint**: [https://bhyman.pythonanywhere.com/garmin_activities/activites](https://bhyman.pythonanywhere.com/garmin_activities/activities)
 
 ## Features
 
@@ -175,16 +177,16 @@ from db_connection import get_db_engine
 
 The database engine is used to query the `garmin_connect_activities` table.
 
-## Usage with Power BI
+## Usage with Tableau
 
-1. **Open Power BI Desktop**
-2. **Get Data** → **OData feed**
-3. **Enter URL**: `https://your-server.com/garmin_activities/`
+1. **Open Tableau Desktop**
+2. **Connect to Data** → **To a Server** → **OData**
+3. **Enter Server URL**: `https://bhyman.pythonanywhere.com/garmin_activities/`
 4. **Authentication**: None (or configure as needed)
-5. **Select**: "Activities" entity
-6. **Load or Transform** data
+5. **Select**: "Activities" table
+6. **Drag to canvas** to start building visualizations
 
-Power BI will automatically detect the schema and load your activity data for analysis.
+Tableau will automatically detect the schema and load your activity data for analysis and visualization.
 
 ## Usage with Excel
 
