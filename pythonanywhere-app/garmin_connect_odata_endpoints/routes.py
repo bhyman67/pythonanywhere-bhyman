@@ -86,7 +86,7 @@ def metadata():
         <Property Name="MaxStress" Type="Edm.Double"/>
       </EntityType>
       <EntityContainer Name="Container">
-        <EntitySet Name="Activities" EntityType="GarminActivitiesService.Activity"/>
+        <EntitySet Name="activities" EntityType="GarminActivitiesService.Activity"/>
       </EntityContainer>
     </Schema>
   </edmx:DataServices>
@@ -100,9 +100,9 @@ def service_doc():
         "@odata.context": f"{request.url_root}garmin_activities/$metadata",
         "value": [
             {
-                "name": "Activities",
+                "name": "activities",
                 "kind": "EntitySet",
-                "url": "Activities"
+                "url": "activities"
             }
         ]
     }
@@ -236,7 +236,7 @@ def activities_data():
         
         # Build OData response
         odata_response = {
-            "@odata.context": f"{request.url_root}garmin_activities/$metadata#Activities"
+            "@odata.context": f"{request.url_root}garmin_activities/$metadata#activities"
         }
         
         # Add count if requested
@@ -251,7 +251,7 @@ def activities_data():
             next_params['$skip'] = str(next_skip)
             next_params['$top'] = str(top)
             param_string = '&'.join([f"{k}={v}" for k, v in next_params.items()])
-            odata_response["@odata.nextLink"] = f"{request.url}?{param_string}"
+            odata_response["@odata.nextLink"] = f"{request.base_url}?{param_string}"
         
         odata_response["value"] = data
         
